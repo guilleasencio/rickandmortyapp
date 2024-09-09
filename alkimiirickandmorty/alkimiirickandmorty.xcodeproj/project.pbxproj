@@ -44,6 +44,7 @@
 		46535DC42C8F11F600F2F6CA /* alkimiirickandmortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alkimiirickandmortyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46535DC82C8F11F600F2F6CA /* alkimiirickandmortyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alkimiirickandmortyUITests.swift; sourceTree = "<group>"; };
 		46535DCA2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alkimiirickandmortyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		46535DD72C8F268400F2F6CA /* GraphQL */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GraphQL; path = ../GraphQL; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +75,7 @@
 		46535DA12C8F11F400F2F6CA = {
 			isa = PBXGroup;
 			children = (
+				46535DD72C8F268400F2F6CA /* GraphQL */,
 				46535DAC2C8F11F400F2F6CA /* alkimiirickandmorty */,
 				46535DBD2C8F11F600F2F6CA /* alkimiirickandmortyTests */,
 				46535DC72C8F11F600F2F6CA /* alkimiirickandmortyUITests */,

@@ -1,0 +1,30 @@
+{
+  "schemaNamespace" : "API",
+  "input" : {
+    "operationSearchPaths" : [
+      "Sources/GraphQL/Queries/**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "Sources/GraphQL/schema.json"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "absolute" : {
+          "path": "Tests/Mocks"
+      }
+    },
+    "schemaTypes" : {
+      "path" : "Sources/GraphQL/API",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "GraphQL"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}
