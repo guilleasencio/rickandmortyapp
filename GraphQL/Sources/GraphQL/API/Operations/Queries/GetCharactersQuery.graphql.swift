@@ -8,16 +8,24 @@ extension API {
     static let operationName: String = "GetCharacters"
     static let operationDocument: ApolloAPI.OperationDocument = .init(
       definition: .init(
-        #"query GetCharacters($page: Int!) { characters(page: $page, filter: {  }) { __typename results { __typename id name status species type gender origin { __typename name } location { __typename name } image created } } }"#
+        #"query GetCharacters($page: Int!, $gender: String!) { characters(page: $page, filter: { gender: $gender }) { __typename results { __typename id name status species type gender origin { __typename name } location { __typename name } image created } } }"#
       ))
 
     public var page: Int
+    public var gender: String
 
-    public init(page: Int) {
+    public init(
+      page: Int,
+      gender: String
+    ) {
       self.page = page
+      self.gender = gender
     }
 
-    public var __variables: Variables? { ["page": page] }
+    public var __variables: Variables? { [
+      "page": page,
+      "gender": gender
+    ] }
 
     struct Data: API.SelectionSet {
       let __data: DataDict
@@ -27,7 +35,7 @@ extension API {
       static var __selections: [ApolloAPI.Selection] { [
         .field("characters", Characters?.self, arguments: [
           "page": .variable("page"),
-          "filter": []
+          "filter": ["gender": .variable("gender")]
         ]),
       ] }
 
