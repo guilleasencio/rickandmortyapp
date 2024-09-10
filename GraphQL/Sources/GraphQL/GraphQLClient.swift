@@ -8,7 +8,9 @@
 import Apollo
 
 protocol GraphQLClient {
-    func query<Query: GraphQLQuery>(query: Query) async
+    func query<Query: GraphQLQuery>(query: Query,
+                                    onSuccess: @escaping (Query.Data) -> Void,
+                                    onFailure: @escaping (DataSourceError) -> Void)
 }
 
 class GraphQLClientImplementation: GraphQLClient {
@@ -18,7 +20,25 @@ class GraphQLClientImplementation: GraphQLClient {
         self.apolloClient = apolloClient
     }
     
+    func query<Query: GraphQLQuery>(query: Query,
+                                    onSuccess: @escaping (Query.Data) -> Void,
+                                    onFailure: @escaping (DataSourceError) -> Void) {
+        apolloClient.fetch(query: query, resultHandler: { result in
+            switch result {
+            case let .success(GraphQLResult):
+                guard let data = GraphQLResult.data else {
+                    onFailure(.missingResult(message: "Error in the GraphQL Result Data"))
+                    return
+                }
+
+                onSuccess(data)
+            case let .failure(error):
+                onFailure(.clientError(error: error))
+            }
+        })
+    }
+    
     func query<Query>(query: Query) async where Query : GraphQLQuery {
-        apolloClient.fetch(query: query)
+        
     }
 }

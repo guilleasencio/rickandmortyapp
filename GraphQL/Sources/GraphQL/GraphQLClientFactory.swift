@@ -8,7 +8,8 @@
 import Foundation
 
 enum GraphQLClientFactory {
-    func make(url: URL = BackendConfig.url) -> GraphQLClient {
+    func make() -> GraphQLClient {
+        let url: URL = BackendConfig.baseUrl
         let apolloClient = ApolloClientWrapper(endpointUrl: url)
         return GraphQLClientImplementation(apolloClient: apolloClient)
     }
