@@ -11,6 +11,7 @@ public class Character: MockObject {
 
   public struct MockFields {
     @Field<String>("created") public var created
+    @Field<[Episode?]>("episode") public var episode
     @Field<String>("gender") public var gender
     @Field<API.ID>("id") public var id
     @Field<String>("image") public var image
@@ -26,6 +27,7 @@ public class Character: MockObject {
 public extension Mock where O == Character {
   convenience init(
     created: String? = nil,
+    episode: [Mock<Episode>?]? = nil,
     gender: String? = nil,
     id: API.ID? = nil,
     image: String? = nil,
@@ -38,6 +40,7 @@ public extension Mock where O == Character {
   ) {
     self.init()
     _setScalar(created, for: \.created)
+    _setList(episode, for: \.episode)
     _setScalar(gender, for: \.gender)
     _setScalar(id, for: \.id)
     _setScalar(image, for: \.image)

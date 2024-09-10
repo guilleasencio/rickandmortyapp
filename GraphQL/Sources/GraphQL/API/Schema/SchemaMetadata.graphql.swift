@@ -33,6 +33,7 @@ public extension API {
       case "Characters": return API.Objects.Characters
       case "Character": return API.Objects.Character
       case "Location": return API.Objects.Location
+      case "Episode": return API.Objects.Episode
       default: return nil
       }
     }
