@@ -13,9 +13,9 @@ public extension DataSourceError {
     func toCustomError() -> CustomError {
         switch self {
         case .missingResult(let message):
-            return CustomError(errorCode: .missingResult, errorMessage: self.localizedDescription)
+            return CustomError(errorCode: .missingResult, errorMessage: message)
         case .clientError(let error):
-            return CustomError(errorCode: .clientError, errorMessage: self.localizedDescription)
+            return CustomError(errorCode: .clientError, errorMessage: error.localizedDescription)
         }
     }
 }

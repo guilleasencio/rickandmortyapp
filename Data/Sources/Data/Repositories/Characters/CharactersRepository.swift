@@ -11,9 +11,9 @@ import Foundation
 
 class CharactersRepositoryImplementation: CharactersRepository {
     private let charactersDataSource: CharactersDataSource
-    private let converter: GetCharactersQueryDataConverter
+    private let converter: CharacterConverter
     
-    init(charactersDataSource: CharactersDataSource, converter: GetCharactersQueryDataConverter) {
+    init(charactersDataSource: CharactersDataSource, converter: CharacterConverter) {
         self.charactersDataSource = charactersDataSource
         self.converter = converter
     }
@@ -21,7 +21,7 @@ class CharactersRepositoryImplementation: CharactersRepository {
     func getCharacters(for page: Int, gender: Character.Gender) async throws -> [Character] {
         do {
             let charactersDto = try await charactersDataSource.getCharacters(page: page, gender: gender.rawValue)
-            return converter.toDomain(charactersDto)
+            return charactersDto.compactMap({ converter.toDomain($0) })
         } catch let error as DataSourceError {
             throw error.toCustomError()
         }
