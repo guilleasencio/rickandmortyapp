@@ -8,7 +8,7 @@
 import Foundation
 
 enum BackendConfig {
-    var baseUrl: URL {
+    static var baseUrl: URL {
         guard let url = URL(string: "https://rickandmortyapi.com/graphql") else {
             fatalError("Unable to retrieve base URL")
         }
