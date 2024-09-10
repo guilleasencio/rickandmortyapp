@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46273B6C2C90AA5900E7A0E2 /* CharactersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46273B6B2C90AA5900E7A0E2 /* CharactersListView.swift */; };
+		46273B6E2C90AD3A00E7A0E2 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46273B6D2C90AD3A00E7A0E2 /* CharacterListViewModel.swift */; };
+		46273B712C90B21400E7A0E2 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 46273B702C90B21400E7A0E2 /* Data */; };
+		46273B732C90B21900E7A0E2 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 46273B722C90B21900E7A0E2 /* Domain */; };
+		46273B752C90B21C00E7A0E2 /* GraphQL in Frameworks */ = {isa = PBXBuildFile; productRef = 46273B742C90B21C00E7A0E2 /* GraphQL */; };
 		46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */; };
-		46535DB02C8F11F400F2F6CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DAF2C8F11F400F2F6CA /* ContentView.swift */; };
 		46535DB22C8F11F500F2F6CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46535DB12C8F11F500F2F6CA /* Assets.xcassets */; };
 		46535DB52C8F11F500F2F6CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46535DB42C8F11F500F2F6CA /* Preview Assets.xcassets */; };
 		46535DBF2C8F11F600F2F6CA /* alkimiirickandmortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DBE2C8F11F600F2F6CA /* alkimiirickandmortyTests.swift */; };
@@ -34,9 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46273B6B2C90AA5900E7A0E2 /* CharactersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListView.swift; sourceTree = "<group>"; };
+		46273B6D2C90AD3A00E7A0E2 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		46535DAA2C8F11F400F2F6CA /* alkimiirickandmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alkimiirickandmorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alkimiirickandmortyApp.swift; sourceTree = "<group>"; };
-		46535DAF2C8F11F400F2F6CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46535DB12C8F11F500F2F6CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46535DB42C8F11F500F2F6CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		46535DBA2C8F11F600F2F6CA /* alkimiirickandmortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alkimiirickandmortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46273B752C90B21C00E7A0E2 /* GraphQL in Frameworks */,
+				46273B732C90B21900E7A0E2 /* Domain in Frameworks */,
+				46273B712C90B21400E7A0E2 /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +82,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46273B692C90AA2400E7A0E2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				46273B6A2C90AA2F00E7A0E2 /* CharactersList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		46273B6A2C90AA2F00E7A0E2 /* CharactersList */ = {
+			isa = PBXGroup;
+			children = (
+				46273B6B2C90AA5900E7A0E2 /* CharactersListView.swift */,
+				46273B6D2C90AD3A00E7A0E2 /* CharacterListViewModel.swift */,
+			);
+			path = CharactersList;
+			sourceTree = "<group>";
+		};
+		46273B6F2C90B21400E7A0E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		46535DA12C8F11F400F2F6CA = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +116,7 @@
 				46535DBD2C8F11F600F2F6CA /* alkimiirickandmortyTests */,
 				46535DC72C8F11F600F2F6CA /* alkimiirickandmortyUITests */,
 				46535DAB2C8F11F400F2F6CA /* Products */,
+				46273B6F2C90B21400E7A0E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,8 +133,8 @@
 		46535DAC2C8F11F400F2F6CA /* alkimiirickandmorty */ = {
 			isa = PBXGroup;
 			children = (
+				46273B692C90AA2400E7A0E2 /* Scenes */,
 				46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */,
-				46535DAF2C8F11F400F2F6CA /* ContentView.swift */,
 				46535DB12C8F11F500F2F6CA /* Assets.xcassets */,
 				46535DB32C8F11F500F2F6CA /* Preview Content */,
 			);
@@ -149,6 +182,11 @@
 			dependencies = (
 			);
 			name = alkimiirickandmorty;
+			packageProductDependencies = (
+				46273B702C90B21400E7A0E2 /* Data */,
+				46273B722C90B21900E7A0E2 /* Domain */,
+				46273B742C90B21C00E7A0E2 /* GraphQL */,
+			);
 			productName = alkimiirickandmorty;
 			productReference = 46535DAA2C8F11F400F2F6CA /* alkimiirickandmorty.app */;
 			productType = "com.apple.product-type.application";
@@ -263,8 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46535DB02C8F11F400F2F6CA /* ContentView.swift in Sources */,
+				46273B6E2C90AD3A00E7A0E2 /* CharacterListViewModel.swift in Sources */,
 				46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */,
+				46273B6C2C90AA5900E7A0E2 /* CharactersListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +627,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		46273B702C90B21400E7A0E2 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		46273B722C90B21900E7A0E2 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		46273B742C90B21C00E7A0E2 /* GraphQL */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GraphQL;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 46535DA22C8F11F400F2F6CA /* Project object */;
 }
