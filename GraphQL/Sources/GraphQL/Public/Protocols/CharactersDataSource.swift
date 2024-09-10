@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol CharactersDataSource {
-    func getCharacters(page: Int, gender: String) async throws -> API.GetCharactersQuery.Data
+    func getCharacters(page: Int, gender: String) async throws -> [CharacterDTO]
 }

@@ -8,8 +8,9 @@
 import Foundation
 
 public enum CharactersDataSourceFactory {
-    func make() -> CharactersDataSource {
-        let client = GraphQLClientFactory.make()
-        return CharactersDataSourceImplementation(client: client)
+    public static func make() -> CharactersDataSource {
+        let client: GraphQLClient = GraphQLClientFactory.make()
+        let converter: CharactersQueryDataConverter = CharactersQueryDataConverterImplementation()
+        return CharactersDataSourceImplementation(client: client, converter: converter)
     }
 }
