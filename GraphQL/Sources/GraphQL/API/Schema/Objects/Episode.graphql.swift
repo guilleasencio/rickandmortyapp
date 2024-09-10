@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-public extension API.Objects {
+extension API.Objects {
   static let Episode = ApolloAPI.Object(
     typename: "Episode",
     implementedInterfaces: []

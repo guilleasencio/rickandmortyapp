@@ -18,14 +18,26 @@
       "path" : "Sources/GraphQL/API",
       "moduleType" : {
         "embeddedInTarget" : {
-            "accessModifier": "public",
             "name" : "GraphQL"
         }
       }
     },
     "operations" : {
-      "inSchemaModule" : {
-      }
+      "inSchemaModule" : {}
     }
+  },
+  "schemaDownloadConfiguration": {
+      "downloadMethod": {
+          "introspection": {
+              "endpointURL": "https://rickandmortyapi.com/graphql",
+              "httpMethod": {
+                  "POST": {}
+              },
+              "includeDeprecatedInputValues": false,
+              "outputFormat": "JSON"
+          }
+      },
+      "downloadTimeout": 60,
+      "outputPath": "Sources/GraphQL/schema.json"
   }
 }

@@ -3,19 +3,19 @@
 
 import ApolloAPI
 
-public protocol API_SelectionSet: ApolloAPI.SelectionSet & ApolloAPI.RootSelectionSet
+protocol API_SelectionSet: ApolloAPI.SelectionSet & ApolloAPI.RootSelectionSet
 where Schema == API.SchemaMetadata {}
 
-public protocol API_InlineFragment: ApolloAPI.SelectionSet & ApolloAPI.InlineFragment
+protocol API_InlineFragment: ApolloAPI.SelectionSet & ApolloAPI.InlineFragment
 where Schema == API.SchemaMetadata {}
 
-public protocol API_MutableSelectionSet: ApolloAPI.MutableRootSelectionSet
+protocol API_MutableSelectionSet: ApolloAPI.MutableRootSelectionSet
 where Schema == API.SchemaMetadata {}
 
-public protocol API_MutableInlineFragment: ApolloAPI.MutableSelectionSet & ApolloAPI.InlineFragment
+protocol API_MutableInlineFragment: ApolloAPI.MutableSelectionSet & ApolloAPI.InlineFragment
 where Schema == API.SchemaMetadata {}
 
-public extension API {
+extension API {
   typealias SelectionSet = API_SelectionSet
 
   typealias InlineFragment = API_InlineFragment
@@ -25,9 +25,9 @@ public extension API {
   typealias MutableInlineFragment = API_MutableInlineFragment
 
   enum SchemaMetadata: ApolloAPI.SchemaMetadata {
-    public static let configuration: any ApolloAPI.SchemaConfiguration.Type = SchemaConfiguration.self
+    static let configuration: any ApolloAPI.SchemaConfiguration.Type = SchemaConfiguration.self
 
-    public static func objectType(forTypename typename: String) -> ApolloAPI.Object? {
+    static func objectType(forTypename typename: String) -> ApolloAPI.Object? {
       switch typename {
       case "Query": return API.Objects.Query
       case "Characters": return API.Objects.Characters
