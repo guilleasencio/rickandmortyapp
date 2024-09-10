@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension API.Objects {
+public extension API.Objects {
   static let Characters = ApolloAPI.Object(
     typename: "Characters",
     implementedInterfaces: []

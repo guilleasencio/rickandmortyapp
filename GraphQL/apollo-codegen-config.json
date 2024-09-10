@@ -18,7 +18,8 @@
       "path" : "Sources/GraphQL/API",
       "moduleType" : {
         "embeddedInTarget" : {
-          "name" : "GraphQL"
+            "accessModifier": "public",
+            "name" : "GraphQL"
         }
       }
     },
