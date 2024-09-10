@@ -4,11 +4,11 @@
 @_exported import ApolloAPI
 
 public extension API {
-  class GetCharacterQuery: GraphQLQuery {
-    public static let operationName: String = "GetCharacter"
+  class GetCharacterDetailsQuery: GraphQLQuery {
+    public static let operationName: String = "GetCharacterDetails"
     public static let operationDocument: ApolloAPI.OperationDocument = .init(
       definition: .init(
-        #"query GetCharacter($id: ID!) { character(id: $id) { __typename id name status species type gender origin { __typename id name type dimension residents { __typename id name } created } location { __typename id name type dimension residents { __typename id name } created } image episode { __typename id name air_date episode characters { __typename id name } created } created } }"#
+        #"query GetCharacterDetails($id: ID!) { character(id: $id) { __typename id name status species type gender origin { __typename id name type dimension residents { __typename id name } created } location { __typename id name type dimension residents { __typename id name } created } image episode { __typename id name air_date episode characters { __typename id name } created } created } }"#
       ))
 
     public var id: ID
