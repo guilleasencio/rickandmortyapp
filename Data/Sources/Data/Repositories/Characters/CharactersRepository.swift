@@ -18,9 +18,10 @@ class CharactersRepositoryImplementation: CharactersRepository {
         self.converter = converter
     }
     
-    func getCharacters(for page: Int, gender: Character.Gender) async throws -> [Character] {
+    func getCharacters(for page: Int, gender: Character.Gender?) async throws -> [Character] {
         do {
-            let charactersDto = try await charactersDataSource.getCharacters(page: page, gender: gender.rawValue)
+            let genderName: String = gender?.rawValue ?? ""
+            let charactersDto = try await charactersDataSource.getCharacters(page: page, gender: genderName)
             return charactersDto.compactMap({ converter.toDomain($0) })
         } catch let error as DataSourceError {
             throw error.toCustomError()
