@@ -18,6 +18,8 @@
 		46535DBF2C8F11F600F2F6CA /* alkimiirickandmortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DBE2C8F11F600F2F6CA /* alkimiirickandmortyTests.swift */; };
 		46535DC92C8F11F600F2F6CA /* alkimiirickandmortyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DC82C8F11F600F2F6CA /* alkimiirickandmortyUITests.swift */; };
 		46535DCB2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DCA2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift */; };
+		46E156E22C92FCD9007CBB1E /* CharactersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156E12C92FCD9007CBB1E /* CharactersListItemView.swift */; };
+		46E156E72C930407007CBB1E /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156E62C930407007CBB1E /* CharacterImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		46535DD72C8F268400F2F6CA /* GraphQL */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GraphQL; path = ../GraphQL; sourceTree = "<group>"; };
 		46535DD82C904DAB00F2F6CA /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = ../Domain; sourceTree = "<group>"; };
 		46535DD92C904E7800F2F6CA /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = ../Data; sourceTree = "<group>"; };
+		46E156E12C92FCD9007CBB1E /* CharactersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListItemView.swift; sourceTree = "<group>"; };
+		46E156E62C930407007CBB1E /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +97,7 @@
 		46273B6A2C90AA2F00E7A0E2 /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
-				46273B6B2C90AA5900E7A0E2 /* CharactersListView.swift */,
+				46E156E02C92FC7E007CBB1E /* Views */,
 				46273B6D2C90AD3A00E7A0E2 /* CharacterListViewModel.swift */,
 			);
 			path = CharactersList;
@@ -133,6 +137,7 @@
 		46535DAC2C8F11F400F2F6CA /* alkimiirickandmorty */ = {
 			isa = PBXGroup;
 			children = (
+				46E156E32C9302CC007CBB1E /* CommonViews */,
 				46273B692C90AA2400E7A0E2 /* Scenes */,
 				46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */,
 				46535DB12C8F11F500F2F6CA /* Assets.xcassets */,
@@ -164,6 +169,23 @@
 				46535DCA2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift */,
 			);
 			path = alkimiirickandmortyUITests;
+			sourceTree = "<group>";
+		};
+		46E156E02C92FC7E007CBB1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46273B6B2C90AA5900E7A0E2 /* CharactersListView.swift */,
+				46E156E12C92FCD9007CBB1E /* CharactersListItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		46E156E32C9302CC007CBB1E /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				46E156E62C930407007CBB1E /* CharacterImageView.swift */,
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				46273B6E2C90AD3A00E7A0E2 /* CharacterListViewModel.swift in Sources */,
+				46E156E72C930407007CBB1E /* CharacterImageView.swift in Sources */,
+				46E156E22C92FCD9007CBB1E /* CharactersListItemView.swift in Sources */,
 				46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */,
 				46273B6C2C90AA5900E7A0E2 /* CharactersListView.swift in Sources */,
 			);

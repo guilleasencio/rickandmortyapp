@@ -17,12 +17,15 @@ struct CharactersListView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear {
-                Task { @MainActor in
-                    await viewModel.onAppear()
-                }
+        List {
+            ForEach(viewModel.characters, id: \.id) { character in
+                CharactersListItemView(character: character)
             }
+        }.onAppear {
+            Task { @MainActor in
+                await viewModel.onAppear()
+            }
+        }
     }
 }
 
