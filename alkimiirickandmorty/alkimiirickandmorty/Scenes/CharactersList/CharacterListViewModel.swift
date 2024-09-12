@@ -9,6 +9,7 @@ import Domain
 import Foundation
 
 enum LoadState {
+    case pendingToInit
     case isLoading
     case idle
 }
@@ -17,7 +18,7 @@ class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var page: Int = 1
     @Published var hasMoreData: Bool = true
-    @Published var loadState: LoadState = .idle
+    @Published var loadState: LoadState = .pendingToInit
     
     private var gender: Character.Gender = .all
     

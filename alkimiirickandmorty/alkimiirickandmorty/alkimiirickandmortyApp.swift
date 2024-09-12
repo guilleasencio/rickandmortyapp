@@ -13,10 +13,7 @@ import SwiftUI
 struct alkimiirickandmortyApp: App {
     var body: some Scene {
         WindowGroup {
-            let charactersRepository = CharactersRepositoryFactory.make()
-            let getCharactersUseCase = GetCharactersUseCaseFactory.make(charactersRepository: charactersRepository)
-            let viewModel = CharacterListViewModel(getCharactersUseCase: getCharactersUseCase)
-            return CharactersListView(viewModel: viewModel)
+            CharacterListViewFactory.make()
         }
     }
 }

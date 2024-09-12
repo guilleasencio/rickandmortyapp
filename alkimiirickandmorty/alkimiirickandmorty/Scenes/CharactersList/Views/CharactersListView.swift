@@ -25,19 +25,23 @@ struct CharactersListView: View {
                     genderFilter()
                     Spacer()
                 }
-                List() {
-                    Section {
-                        ForEach(viewModel.characters, id: \.id) { character in
-                            CharactersListItemView(character: character)
-                                .listRowSeparator(.hidden)
+                if viewModel.loadState == .pendingToInit {
+                    ProgressView()
+                } else {
+                    List() {
+                        Section {
+                            ForEach(viewModel.characters, id: \.id) { character in
+                                CharactersListItemView(character: character)
+                                    .listRowSeparator(.hidden)
+                            }
+                            .listRowInsets(EdgeInsets.init(.zero))
+                            if viewModel.hasMoreData {
+                                loadMoreRow()
+                            }
+                        } header: {
                         }
-                        .listRowInsets(EdgeInsets.init(.zero))
-                        if viewModel.hasMoreData {
-                            loadMoreRow()
-                        }
-                    } header: {
                     }
-                }
+            }
             }
             .navigationTitle("Characters")
             .navigationBarTitleDisplayMode(.inline)
@@ -74,7 +78,7 @@ struct CharactersListView: View {
     private func loadMoreRow() -> some View {
         ZStack(alignment: .center) {
             switch viewModel.loadState {
-                case .isLoading:
+            case .pendingToInit, .isLoading:
                     HStack(alignment: .center) {
                         Spacer()
                         ProgressView()

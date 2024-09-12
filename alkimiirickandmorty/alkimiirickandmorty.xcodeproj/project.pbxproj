@@ -20,6 +20,7 @@
 		46535DCB2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DCA2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift */; };
 		46E156E22C92FCD9007CBB1E /* CharactersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156E12C92FCD9007CBB1E /* CharactersListItemView.swift */; };
 		46E156E72C930407007CBB1E /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156E62C930407007CBB1E /* CharacterImageView.swift */; };
+		46E156F32C935A16007CBB1E /* CharacterListViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156F22C935A16007CBB1E /* CharacterListViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		46535DD92C904E7800F2F6CA /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = ../Data; sourceTree = "<group>"; };
 		46E156E12C92FCD9007CBB1E /* CharactersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListItemView.swift; sourceTree = "<group>"; };
 		46E156E62C930407007CBB1E /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
+		46E156F22C935A16007CBB1E /* CharacterListViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				46E156E02C92FC7E007CBB1E /* Views */,
 				46273B6D2C90AD3A00E7A0E2 /* CharacterListViewModel.swift */,
+				46E156F22C935A16007CBB1E /* CharacterListViewFactory.swift */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				46E156E72C930407007CBB1E /* CharacterImageView.swift in Sources */,
 				46E156E22C92FCD9007CBB1E /* CharactersListItemView.swift in Sources */,
 				46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */,
+				46E156F32C935A16007CBB1E /* CharacterListViewFactory.swift in Sources */,
 				46273B6C2C90AA5900E7A0E2 /* CharactersListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
