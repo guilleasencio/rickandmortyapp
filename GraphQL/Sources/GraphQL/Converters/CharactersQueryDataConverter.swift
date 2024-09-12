@@ -52,13 +52,14 @@ class CharactersQueryDataConverterImplementation: CharactersQueryDataConverter {
     
     private func getOrigin(_ from: APIOrigin?) -> LocationDTO? {
         guard let origin = from,
-              let id = origin.id else {
+              let id = origin.id,
+              let name = origin.name else {
             return nil
         }
         
         return LocationDTO(
             id: id,
-            name: origin.name,
+            name: name,
             type: origin.type,
             dimension: origin.dimension,
             residents: origin.residents.compactMap({ getResident($0) }),
@@ -68,13 +69,14 @@ class CharactersQueryDataConverterImplementation: CharactersQueryDataConverter {
     
     private func getLocation(_ from: API.GetCharactersQuery.Data.Characters.Result.Location?) -> LocationDTO? {
         guard let origin = from,
-              let id = origin.id else {
+              let id = origin.id,
+              let name = origin.name else {
             return nil
         }
         
         return LocationDTO(
             id: id,
-            name: origin.name,
+            name: name,
             type: origin.type,
             dimension: origin.dimension,
             residents: origin.residents.compactMap({ getResident($0) }),

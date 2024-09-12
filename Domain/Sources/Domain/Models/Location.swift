@@ -19,7 +19,7 @@ public struct Location {
     }
     
     public let id: String
-    public let name: String?
+    public let name: String
     public let type: String?
     public let dimension: String?
     public let residents: [Resident]
@@ -27,7 +27,7 @@ public struct Location {
     
     public init(
         id: String,
-        name: String?,
+        name: String,
         type: String?,
         dimension: String?,
         residents: [Resident],
