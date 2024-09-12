@@ -24,17 +24,21 @@ struct CharactersListItemView: View {
             
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(character.name)
-                    .font(.system(size: 22.0))
+                    .font(.system(size: 20.0))
                     .bold()
-                if let origin = character.origin {
-                    Text("Origin: \(origin.name)")
-                        .font(.system(size: 14.0))
-                }
+               
+                Text(character.origin?.name ?? "unknown origin")
+                        .font(.system(size: 12.0))
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                
                 Text("Gender: \(character.gender.rawValue)")
-                    .font(.system(size: 14.0))
+                    .font(.system(size: 12.0))
             }
             Spacer()
         }
+//        .padding(.horizontal, 10)
+        .padding(.vertical, 10)
     }
 }
 
@@ -52,9 +56,9 @@ struct CharactersListItemView: View {
             type: "Planet",
             dimension: "Dimension C-137",
             residents: [Location.Resident(
-                            id: "38",
-                            name: "Beth Smith"
-                        ),
+                id: "38",
+                name: "Beth Smith"
+            ),
                         Location.Resident(
                             id: "45",
                             name: "Bill"
@@ -68,9 +72,9 @@ struct CharactersListItemView: View {
             type: "Space station",
             dimension: "unknown",
             residents: [Location.Resident(
-                            id: "1",
-                            name: "Rick Sanchez"
-                        ),
+                id: "1",
+                name: "Rick Sanchez"
+            ),
                         Location.Resident(
                             id: "2",
                             name: "Morty Smith"
@@ -100,4 +104,5 @@ struct CharactersListItemView: View {
     )
     
     return CharactersListItemView(character: character)
+        .frame(width: 375, height: 120)
 }

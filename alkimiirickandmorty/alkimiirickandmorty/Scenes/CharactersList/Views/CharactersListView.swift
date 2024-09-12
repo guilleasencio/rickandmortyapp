@@ -17,13 +17,20 @@ struct CharactersListView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(viewModel.characters, id: \.id) { character in
-                CharactersListItemView(character: character)
+        NavigationView {
+            List() {
+                ForEach(viewModel.characters, id: \.id) { character in
+                    CharactersListItemView(character: character)
+                        .listRowSeparator(.hidden)
+                }
+                .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
-        }.onAppear {
-            Task { @MainActor in
-                await viewModel.onAppear()
+            .environment(\.defaultMinListRowHeight, 140)
+            .navigationTitle("Characters")
+            .onAppear {
+                Task { @MainActor in
+                    await viewModel.onAppear()
+                }
             }
         }
     }
