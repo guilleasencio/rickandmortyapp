@@ -11,6 +11,7 @@ import SwiftUI
 
 struct CharactersListView: View {
     @ObservedObject var viewModel: CharacterListViewModel
+    @State var gender: Character.Gender = .all
     
     init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel
@@ -18,23 +19,55 @@ struct CharactersListView: View {
     
     var body: some View {
         NavigationView {
-            List() {
-                ForEach(viewModel.characters, id: \.id) { character in
-                    CharactersListItemView(character: character)
-                        .listRowSeparator(.hidden)
+            VStack {
+                HStack {
+                    Spacer()
+                    genderFilter()
+                    Spacer()
                 }
-                .listRowInsets(EdgeInsets.init(.zero))
-                if viewModel.hasMoreData {
-                    loadMoreRow()
+                List() {
+                    Section {
+                        ForEach(viewModel.characters, id: \.id) { character in
+                            CharactersListItemView(character: character)
+                                .listRowSeparator(.hidden)
+                        }
+                        .listRowInsets(EdgeInsets.init(.zero))
+                        if viewModel.hasMoreData {
+                            loadMoreRow()
+                        }
+                    } header: {
+                    }
                 }
             }
             .navigationTitle("Characters")
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 Task { @MainActor in
                     await viewModel.loadData()
                 }
             }
         }
+    }
+    
+    @ViewBuilder
+    private func genderFilter() -> some View {
+        HStack {
+            Text("Filter by Gender:")
+                .font(.system(size: 18.0))
+                .foregroundColor(.black)
+            Picker("Gender", selection: $gender) {
+                ForEach(Character.Gender.allCases) { gender in
+                    Text(gender.rawValue)
+                        .tag(gender)
+                }
+            }
+            .onChange(of: gender) { oldValue, newValue in
+                viewModel.setGender(newGender: newValue)
+            }
+            .pickerStyle(.menu)
+            .tint(.black)
+        }
+        .textCase(.none)
     }
     
     @ViewBuilder

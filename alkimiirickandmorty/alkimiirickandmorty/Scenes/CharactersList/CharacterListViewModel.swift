@@ -19,6 +19,8 @@ class CharacterListViewModel: ObservableObject {
     @Published var hasMoreData: Bool = true
     @Published var loadState: LoadState = .idle
     
+    private var gender: Character.Gender = .all
+    
     private let getCharactersUseCase: GetCharactersUseCase
     
     init(getCharactersUseCase: GetCharactersUseCase) {
@@ -29,7 +31,7 @@ class CharacterListViewModel: ObservableObject {
     func loadData() async {
         do {
             loadState = .isLoading
-            let newCharacters = try await getCharactersUseCase(page: page, gender: nil)
+            let newCharacters = try await getCharactersUseCase(page: page, gender: gender)
             characters.append(contentsOf: newCharacters)
             loadState = .idle
             hasMoreData = !newCharacters.isEmpty
@@ -38,5 +40,13 @@ class CharacterListViewModel: ObservableObject {
             loadState = .idle
             hasMoreData = false
         }
+    }
+
+    func setGender(newGender: Character.Gender) {
+        gender = newGender
+        characters = []
+        page = 1
+        hasMoreData = true
+        loadState = .idle
     }
 }

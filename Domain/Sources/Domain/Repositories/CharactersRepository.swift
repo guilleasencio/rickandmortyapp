@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol CharactersRepository {
-    func getCharacters(for page: Int, gender: Character.Gender?) async throws -> [Character]
+    func getCharacters(for page: Int, gender: Character.Gender) async throws -> [Character]
 }

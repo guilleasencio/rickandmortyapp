@@ -24,16 +24,16 @@ struct CharactersListItemView: View {
             
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(character.name)
-                    .font(.system(size: 20.0))
+                    .font(.system(size: 22.0))
                     .bold()
                
                 Text(character.origin?.name ?? "unknown origin")
-                        .font(.system(size: 12.0))
+                        .font(.system(size: 14.0))
                         .lineLimit(1)
                         .truncationMode(.tail)
                 
                 Text("Gender: \(character.gender.rawValue)")
-                    .font(.system(size: 12.0))
+                    .font(.system(size: 14.0))
             }
             Spacer()
         }

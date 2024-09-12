@@ -18,13 +18,27 @@ class CharactersRepositoryImplementation: CharactersRepository {
         self.converter = converter
     }
     
-    func getCharacters(for page: Int, gender: Character.Gender?) async throws -> [Character] {
+    func getCharacters(for page: Int, gender: Character.Gender) async throws -> [Character] {
         do {
-            let genderName: String = gender?.rawValue ?? ""
-            let charactersDto = try await charactersDataSource.getCharacters(page: page, gender: genderName)
+            let charactersDto = try await charactersDataSource.getCharacters(page: page, gender: getGenderFilter(gender))
             return charactersDto.compactMap({ converter.toDomain($0) })
         } catch let error as DataSourceError {
             throw error.toCustomError()
+        }
+    }
+    
+    private func getGenderFilter(_ gender: Character.Gender) -> String {
+        switch gender {
+        case .female:
+            "female"
+        case .male:
+            "male"
+        case .genderless:
+            "genderless"
+        case .unknown:
+            "unknown"
+        case .all:
+            ""
         }
     }
 }

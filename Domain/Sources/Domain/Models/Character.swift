@@ -21,11 +21,13 @@ public struct Character {
         return status
     }
 
-    public enum Gender: String {
+    public enum Gender: String, Equatable, CaseIterable, Identifiable {
         case female = "Female"
         case male = "Male"
         case genderless = "Genderless"
         case unknown
+        case all
+        public var id: Gender { self }
     }
     
     public static func getGender(_ from: String?) -> Gender {

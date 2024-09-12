@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol GetCharactersUseCase {
-    func callAsFunction(page: Int, gender: Character.Gender?) async throws -> [Character]
+    func callAsFunction(page: Int, gender: Character.Gender) async throws -> [Character]
 }
 
 final class GetCharactersUseCaseImplementation: GetCharactersUseCase {
@@ -18,7 +18,7 @@ final class GetCharactersUseCaseImplementation: GetCharactersUseCase {
         self.charactersRepository = charactersRepository
     }
     
-    func callAsFunction(page: Int, gender: Character.Gender?) async throws -> [Character] {
+    func callAsFunction(page: Int, gender: Character.Gender) async throws -> [Character] {
         try await charactersRepository.getCharacters(for: page, gender: gender)
     }
 }
