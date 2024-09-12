@@ -8,8 +8,16 @@
 import Domain
 import Foundation
 
+enum LoadState {
+    case isLoading
+    case idle
+}
+
 class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character] = []
+    @Published var page: Int = 1
+    @Published var hasMoreData: Bool = true
+    @Published var loadState: LoadState = .idle
     
     private let getCharactersUseCase: GetCharactersUseCase
     
@@ -18,11 +26,17 @@ class CharacterListViewModel: ObservableObject {
     }
     
     @MainActor
-    func onAppear() async {
+    func loadData() async {
         do {
-            characters = try await getCharactersUseCase(page: 0, gender: nil)
+            loadState = .isLoading
+            let newCharacters = try await getCharactersUseCase(page: page, gender: nil)
+            characters.append(contentsOf: newCharacters)
+            loadState = .idle
+            hasMoreData = !newCharacters.isEmpty
+            page += 1
         } catch {
-            // Empty
+            loadState = .idle
+            hasMoreData = false
         }
     }
 }

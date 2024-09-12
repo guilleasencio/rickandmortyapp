@@ -37,7 +37,6 @@ struct CharactersListItemView: View {
             }
             Spacer()
         }
-//        .padding(.horizontal, 10)
         .padding(.vertical, 10)
     }
 }

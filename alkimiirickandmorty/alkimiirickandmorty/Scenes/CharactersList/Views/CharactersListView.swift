@@ -23,16 +23,40 @@ struct CharactersListView: View {
                     CharactersListItemView(character: character)
                         .listRowSeparator(.hidden)
                 }
-                .listRowInsets(EdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .listRowInsets(EdgeInsets.init(.zero))
+                if viewModel.hasMoreData {
+                    loadMoreRow()
+                }
             }
-            .environment(\.defaultMinListRowHeight, 140)
             .navigationTitle("Characters")
             .onAppear {
                 Task { @MainActor in
-                    await viewModel.onAppear()
+                    await viewModel.loadData()
                 }
             }
         }
+    }
+    
+    @ViewBuilder
+    private func loadMoreRow() -> some View {
+        ZStack(alignment: .center) {
+            switch viewModel.loadState {
+                case .isLoading:
+                    HStack(alignment: .center) {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                case .idle:
+                    EmptyView()
+                }
+            }
+            .frame(height: 50)
+            .onAppear {
+                Task { @MainActor in
+                    await viewModel.loadData()
+                }
+            }
     }
 }
 
