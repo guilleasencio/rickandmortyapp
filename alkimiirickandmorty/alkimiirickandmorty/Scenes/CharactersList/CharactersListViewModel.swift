@@ -1,5 +1,5 @@
 //
-//  CharacterListViewModel.swift
+//  CharactersListViewModel.swift
 //  alkimiirickandmorty
 //
 //  Created by Guillermo Asencio Sanchez on 10/9/24.
@@ -14,7 +14,7 @@ enum LoadState {
     case idle
 }
 
-class CharacterListViewModel: ObservableObject {
+class CharactersListViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var page: Int = 1
     @Published var hasMoreData: Bool = true

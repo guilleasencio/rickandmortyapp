@@ -13,7 +13,7 @@ import SwiftUI
 struct alkimiirickandmortyApp: App {
     var body: some Scene {
         WindowGroup {
-            CharacterListViewFactory.make()
+            CharactersListViewFactory.make()
         }
     }
 }

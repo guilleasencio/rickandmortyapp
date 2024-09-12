@@ -1,5 +1,5 @@
 //
-//  CharacterListViewFactory.swift
+//  CharactersListViewFactory.swift
 //  alkimiirickandmorty
 //
 //  Created by Guillermo Asencio Sanchez on 12/9/24.
@@ -9,11 +9,11 @@ import Data
 import Domain
 import Foundation
 
-enum CharacterListViewFactory {
+enum CharactersListViewFactory {
     static func make() -> CharactersListView {
         let charactersRepository = CharactersRepositoryFactory.make()
         let getCharactersUseCase = GetCharactersUseCaseFactory.make(charactersRepository: charactersRepository)
-        let viewModel = CharacterListViewModel(getCharactersUseCase: getCharactersUseCase)
+        let viewModel = CharactersListViewModel(getCharactersUseCase: getCharactersUseCase)
         return CharactersListView(viewModel: viewModel)
     }
 }

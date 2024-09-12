@@ -10,10 +10,10 @@ import Domain
 import SwiftUI
 
 struct CharactersListView: View {
-    @ObservedObject var viewModel: CharacterListViewModel
+    @ObservedObject var viewModel: CharactersListViewModel
     @State var gender: Character.Gender = .all
     
-    init(viewModel: CharacterListViewModel) {
+    init(viewModel: CharactersListViewModel) {
         self.viewModel = viewModel
     }
     
@@ -100,6 +100,6 @@ struct CharactersListView: View {
 #Preview {
     let charactersRepository = CharactersRepositoryFactory.make()
     let getCharactersUseCase = GetCharactersUseCaseFactory.make(charactersRepository: charactersRepository)
-    let viewModel = CharacterListViewModel(getCharactersUseCase: getCharactersUseCase)
+    let viewModel = CharactersListViewModel(getCharactersUseCase: getCharactersUseCase)
     return CharactersListView(viewModel: viewModel)
 }
