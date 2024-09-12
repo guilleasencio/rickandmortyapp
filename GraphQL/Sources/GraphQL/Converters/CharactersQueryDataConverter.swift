@@ -43,7 +43,7 @@ class CharactersQueryDataConverterImplementation: CharactersQueryDataConverter {
             gender: GenderDTO.getGender(from.gender),
             origin: getOrigin(from.origin),
             location: getLocation(from.location),
-            image: from.image,
+            image: from.image ?? "",
             episode: from.episode.compactMap({ getEpisode($0) }),
             created: from.created
         )

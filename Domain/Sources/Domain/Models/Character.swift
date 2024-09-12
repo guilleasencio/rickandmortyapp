@@ -43,7 +43,7 @@ public struct Character {
     public let gender: Gender
     public let origin: Location?
     public let location: Location?
-    public let image: String?
+    public let image: String
     public let episode: [Episode]
     public let created: String?
     
@@ -56,7 +56,7 @@ public struct Character {
         gender: Gender,
         origin: Location?,
         location: Location?,
-        image: String?,
+        image: String,
         episode: [Episode],
         created: String?
     ) {

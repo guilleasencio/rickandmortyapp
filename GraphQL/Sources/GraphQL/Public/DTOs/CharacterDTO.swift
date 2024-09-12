@@ -16,7 +16,7 @@ public struct CharacterDTO {
     public let gender: GenderDTO
     public let origin: LocationDTO?
     public let location: LocationDTO?
-    public let image: String?
+    public let image: String
     public let episode: [EpisodeDTO]
     public let created: String?
     
@@ -29,7 +29,7 @@ public struct CharacterDTO {
         gender: GenderDTO,
         origin: LocationDTO?,
         location: LocationDTO?,
-        image: String?,
+        image: String,
         episode: [EpisodeDTO],
         created: String?
     ) {
