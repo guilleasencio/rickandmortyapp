@@ -36,7 +36,10 @@ struct CharactersListView: View {
                                     .overlay {
                                         NavigationLink(
                                             character.id,
-                                            destination: CharacterDetailsViewFactory.make(character: character)
+                                            destination: CharacterDetailsViewFactory.make(
+                                                character: character,
+                                                isFavourite: viewModel.favouriteCharacters.contains(character.id)
+                                            )
                                         )
                                         .opacity(0)
                                     }
@@ -105,7 +108,16 @@ struct CharactersListView: View {
 
 #Preview {
     let charactersRepository = CharactersRepositoryFactory.make()
+    
     let getCharactersUseCase = GetCharactersUseCaseFactory.make(charactersRepository: charactersRepository)
-    let viewModel = CharactersListViewModel(getCharactersUseCase: getCharactersUseCase)
+    
+    let userDefaultsRepository = UserDefaultsRepositoryFactory.make(userDefaults: UserDefaults.standard)
+    
+    let getFavouriteCharactersUseCase = GetFavouriteCharactersUseCaseFactory.make(userDefaultsRepository: userDefaultsRepository)
+    
+    let viewModel = CharactersListViewModel(
+        getCharactersUseCase: getCharactersUseCase,
+        getFavouriteCharactersUseCase: getFavouriteCharactersUseCase
+    )
     return CharactersListView(viewModel: viewModel)
 }

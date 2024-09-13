@@ -19,19 +19,23 @@ class CharactersListViewModel: ObservableObject {
     @Published var page: Int = 1
     @Published var hasMoreData: Bool = true
     @Published var loadState: LoadState = .pendingToInit
+    @Published var favouriteCharacters: [String] = []
     
     private var gender: Character.Gender = .all
     
     private let getCharactersUseCase: GetCharactersUseCase
+    private let getFavouriteCharactersUseCase: GetFavouriteCharactersUseCase
     
-    init(getCharactersUseCase: GetCharactersUseCase) {
+    init(getCharactersUseCase: GetCharactersUseCase, getFavouriteCharactersUseCase: GetFavouriteCharactersUseCase) {
         self.getCharactersUseCase = getCharactersUseCase
+        self.getFavouriteCharactersUseCase = getFavouriteCharactersUseCase
     }
     
     @MainActor
     func loadData() async {
         do {
             loadState = .isLoading
+            favouriteCharacters = getFavouriteCharactersUseCase()
             let newCharacters = try await getCharactersUseCase(page: page, gender: gender)
             characters.append(contentsOf: newCharacters)
             loadState = .idle

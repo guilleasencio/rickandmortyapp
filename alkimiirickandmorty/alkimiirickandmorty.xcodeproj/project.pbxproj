@@ -24,7 +24,6 @@
 		46E156F12C9359B2007CBB1E /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156F02C9359B2007CBB1E /* CharacterDetailsViewModel.swift */; };
 		46E156F32C935A16007CBB1E /* CharactersListViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156F22C935A16007CBB1E /* CharactersListViewFactory.swift */; };
 		46E156F52C935FA9007CBB1E /* CharacterDetailsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156F42C935FA9007CBB1E /* CharacterDetailsViewFactory.swift */; };
-		46E156F72C943AA7007CBB1E /* FavoriteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E156F62C943AA7007CBB1E /* FavoriteButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +64,6 @@
 		46E156F02C9359B2007CBB1E /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
 		46E156F22C935A16007CBB1E /* CharactersListViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewFactory.swift; sourceTree = "<group>"; };
 		46E156F42C935FA9007CBB1E /* CharacterDetailsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewFactory.swift; sourceTree = "<group>"; };
-		46E156F62C943AA7007CBB1E /* FavoriteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				46E156E62C930407007CBB1E /* CharacterImageView.swift */,
-				46E156F62C943AA7007CBB1E /* FavoriteButtonView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -362,7 +359,6 @@
 				46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */,
 				46E156F32C935A16007CBB1E /* CharactersListViewFactory.swift in Sources */,
 				46273B6C2C90AA5900E7A0E2 /* CharactersListView.swift in Sources */,
-				46E156F72C943AA7007CBB1E /* FavoriteButtonView.swift in Sources */,
 				46E156EE2C935984007CBB1E /* CharacterDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

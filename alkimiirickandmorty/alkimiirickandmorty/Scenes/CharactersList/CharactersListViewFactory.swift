@@ -13,7 +13,12 @@ enum CharactersListViewFactory {
     static func make() -> CharactersListView {
         let charactersRepository = CharactersRepositoryFactory.make()
         let getCharactersUseCase = GetCharactersUseCaseFactory.make(charactersRepository: charactersRepository)
-        let viewModel = CharactersListViewModel(getCharactersUseCase: getCharactersUseCase)
+        let userDefaultsRepository = UserDefaultsRepositoryFactory.make(userDefaults: UserDefaults.standard)
+        let getFavouriteCharactersUseCase = GetFavouriteCharactersUseCaseFactory.make(userDefaultsRepository: userDefaultsRepository)
+        let viewModel = CharactersListViewModel(
+            getCharactersUseCase: getCharactersUseCase,
+            getFavouriteCharactersUseCase: getFavouriteCharactersUseCase
+        )
         return CharactersListView(viewModel: viewModel)
     }
 }

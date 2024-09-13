@@ -10,8 +10,22 @@ import Foundation
 
 class CharacterDetailsViewModel: ObservableObject {
     @Published var character: Character
+    @Published var isFavourite: Bool
     
-    init(character: Character) {
+    private let updateFavouriteCharactersUseCase: UpdateFavouriteCharactersUseCase
+    
+    init(
+        character: Character,
+        isFavourite: Bool,
+        updateFavouriteCharactersUseCase: UpdateFavouriteCharactersUseCase
+    ) {
         self.character = character
+        self.isFavourite = isFavourite
+        self.updateFavouriteCharactersUseCase = updateFavouriteCharactersUseCase
+    }
+    
+    func updateFavourite() {
+        isFavourite.toggle()
+        updateFavouriteCharactersUseCase(character: character.id)
     }
 }

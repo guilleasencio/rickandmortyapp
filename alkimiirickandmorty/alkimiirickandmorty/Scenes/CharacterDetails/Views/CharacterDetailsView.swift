@@ -5,12 +5,12 @@
 //  Created by Guillermo Asencio Sanchez on 12/9/24.
 //
 
+import Data
 import Domain
 import SwiftUI
 
 struct CharacterDetailsView: View {
     @ObservedObject var viewModel: CharacterDetailsViewModel
-    @State var isFavorite: Bool = false
     
     init(viewModel: CharacterDetailsViewModel) {
         self.viewModel = viewModel
@@ -40,7 +40,7 @@ struct CharacterDetailsView: View {
 
                 HStack {
                     Spacer()
-                    FavoriteButtonView(isSet: $isFavorite)
+                    favouriteButton()
                         .padding(.trailing, 0)
                 }
             }
@@ -53,6 +53,17 @@ struct CharacterDetailsView: View {
                 }
                 .shadow(radius: 10)
                 .padding(.all, 20)
+        }
+    }
+    
+    @ViewBuilder
+    private func favouriteButton() -> some View {
+        Button {
+            viewModel.updateFavourite()
+        } label: {
+            Label("Toggle Favorite", systemImage: viewModel.isFavourite ? "star.fill" : "star")
+                .labelStyle(.iconOnly)
+                .foregroundStyle(viewModel.isFavourite ? .black : .gray)
         }
     }
     
@@ -131,6 +142,16 @@ struct CharacterDetailsView: View {
             )],
         created: "2017-11-04T18:48:46.250Z"
     )
-    let viewModel = CharacterDetailsViewModel(character: character)
+    
+    let userDefaultsRepository = UserDefaultsRepositoryFactory.make(userDefaults: UserDefaults.standard)
+    
+    let updateFavouriteCharactersUseCase = UpdateFavouriteCharactersUseCaseFactory.make(userDefaultsRepository: userDefaultsRepository)
+    
+    let viewModel = CharacterDetailsViewModel(
+        character: character,
+        isFavourite: false,
+        updateFavouriteCharactersUseCase: updateFavouriteCharactersUseCase
+    )
+    
     return CharacterDetailsView(viewModel: viewModel)
 }
