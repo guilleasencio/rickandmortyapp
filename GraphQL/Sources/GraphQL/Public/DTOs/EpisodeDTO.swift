@@ -19,14 +19,14 @@ public struct EpisodeDTO {
     }
     
     public let id: String
-    public let name: String?
+    public let name: String
     public let airDate: String?
     public let characters: [EpisodeDTO.Character]
     public let created: String?
     
     public init(
         id: String,
-        name: String?,
+        name: String,
         airDate: String?,
         characters: [EpisodeDTO.Character],
         created: String?

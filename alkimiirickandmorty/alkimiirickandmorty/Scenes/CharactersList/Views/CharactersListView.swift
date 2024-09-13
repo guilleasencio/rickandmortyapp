@@ -33,15 +33,21 @@ struct CharactersListView: View {
                             ForEach(viewModel.characters, id: \.id) { character in
                                 CharactersListItemView(character: character)
                                     .listRowSeparator(.hidden)
+                                    .overlay {
+                                        NavigationLink(
+                                            character.id,
+                                            destination: CharacterDetailsViewFactory.make(character: character)
+                                        )
+                                        .opacity(0)
+                                    }
                             }
                             .listRowInsets(EdgeInsets.init(.zero))
                             if viewModel.hasMoreData {
                                 loadMoreRow()
                             }
-                        } header: {
                         }
                     }
-            }
+                }
             }
             .navigationTitle("Characters")
             .navigationBarTitleDisplayMode(.inline)

@@ -19,14 +19,14 @@ public struct Episode {
     }
     
     public let id: String
-    public let name: String?
+    public let name: String
     public let airDate: String?
     public let characters: [Character]
     public let created: String?
     
     public init(
         id: String,
-        name: String?,
+        name: String,
         airDate: String?,
         characters: [Character],
         created: String?
