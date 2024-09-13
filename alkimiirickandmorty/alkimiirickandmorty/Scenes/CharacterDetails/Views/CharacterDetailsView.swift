@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CharacterDetailsView: View {
     @ObservedObject var viewModel: CharacterDetailsViewModel
+    @State var isFavorite: Bool = false
     
     init(viewModel: CharacterDetailsViewModel) {
         self.viewModel = viewModel
@@ -22,6 +23,7 @@ struct CharacterDetailsView: View {
                     headerView()
                     infoView()
                 }
+                .padding(.horizontal, 20)
             }
         }
     }
@@ -29,13 +31,28 @@ struct CharacterDetailsView: View {
     @ViewBuilder
     private func headerView() -> some View {
         VStack(alignment: .center, spacing: 8) {
-            Text(viewModel.character.name)
-                .font(.title)
-                .bold()
+            ZStack {
+                Text(viewModel.character.name)
+                    .multilineTextAlignment(.center)
+                    .font(.title)
+                    .bold()
+                    .padding(.horizontal, 40)
+
+                HStack {
+                    Spacer()
+                    FavoriteButtonView(isSet: $isFavorite)
+                        .padding(.trailing, 0)
+                }
+            }
             CharacterImageView(url: viewModel.character.image)
-                .frame(width: 280.0, height: 280.0, alignment: .center)
-                .clipShape(.rect(cornerRadius: 12))
-                .padding(.all, 12)
+                .frame(width: 250.0, height: 250.0, alignment: .center)
+                .clipShape(Circle())
+                .overlay {
+                    Circle()
+                        .stroke(.black, lineWidth: 4)
+                }
+                .shadow(radius: 10)
+                .padding(.all, 20)
         }
     }
     
@@ -50,7 +67,6 @@ struct CharacterDetailsView: View {
             Text("Location: \(viewModel.character.location?.name ?? "unknown")")
         }
         .font(.system(size: 18.0))
-        .lineLimit(1)
         .truncationMode(.tail)
     }
 }
