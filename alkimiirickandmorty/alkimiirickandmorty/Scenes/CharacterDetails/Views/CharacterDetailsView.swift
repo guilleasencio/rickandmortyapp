@@ -63,7 +63,8 @@ struct CharacterDetailsView: View {
         } label: {
             Label("Toggle Favorite", systemImage: viewModel.isFavourite ? "star.fill" : "star")
                 .labelStyle(.iconOnly)
-                .foregroundStyle(viewModel.isFavourite ? .black : .gray)
+                .font(.system(size: 32))
+                .foregroundStyle(.black)
         }
     }
     

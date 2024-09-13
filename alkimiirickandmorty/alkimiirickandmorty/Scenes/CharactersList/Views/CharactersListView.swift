@@ -31,7 +31,10 @@ struct CharactersListView: View {
                     List() {
                         Section {
                             ForEach(viewModel.characters, id: \.id) { character in
-                                CharactersListItemView(character: character)
+                                CharactersListItemView(
+                                    character: character,
+                                    isFavourite: viewModel.favouriteCharacters.contains(character.id)
+                                )
                                     .listRowSeparator(.hidden)
                                     .overlay {
                                         NavigationLink(

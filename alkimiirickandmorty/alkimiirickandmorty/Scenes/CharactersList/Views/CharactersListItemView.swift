@@ -10,9 +10,11 @@ import SwiftUI
 
 struct CharactersListItemView: View {
     @State private var character: Character
+    private var isFavourite: Bool
     
-    init(character: Character) {
+    init(character: Character, isFavourite: Bool) {
         self.character = character
+        self.isFavourite = isFavourite
     }
     
     var body: some View {
@@ -36,6 +38,11 @@ struct CharactersListItemView: View {
                     .font(.system(size: 14.0))
             }
             Spacer()
+            
+            Image(systemName: isFavourite ? "star.fill" : "star")
+                .font(.system(size: 32))
+                .foregroundStyle(.black)
+                .padding(.trailing, 10)
         }
         .padding(.vertical, 10)
     }
@@ -102,6 +109,6 @@ struct CharactersListItemView: View {
         created: "2017-11-04T18:48:46.250Z"
     )
     
-    return CharactersListItemView(character: character)
+    return CharactersListItemView(character: character, isFavourite: false)
         .frame(width: 375, height: 120)
 }
