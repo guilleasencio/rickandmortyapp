@@ -63,6 +63,7 @@ struct CharactersListView: View {
                 }
             }
         }
+
         // Deeplinking Handling
         .onOpenURL { incomingURL in
             Task { @MainActor in
@@ -125,7 +126,9 @@ struct CharactersListView: View {
             .frame(height: 50)
             .onAppear {
                 Task { @MainActor in
-                    await viewModel.loadData()
+                    if viewModel.loadState == .idle {
+                        await viewModel.loadData()
+                    }
                 }
             }
     }
@@ -161,19 +164,5 @@ extension CharactersListView {
 }
 
 #Preview {
-    let charactersRepository = CharactersRepositoryFactory.make()
-    let getCharactersUseCase = GetCharactersUseCaseFactory.make(charactersRepository: charactersRepository)
-    
-    let characterDetailsRepository = CharacterDetailsRepositoryFactory.make()
-    let getCharacterDetailsUseCase = GetCharacterDetailsUseCaseFactory.make(characterDetailsRepository: characterDetailsRepository)
-    
-    let userDefaultsRepository = UserDefaultsRepositoryFactory.make(userDefaults: UserDefaults.standard)
-    let getFavouriteCharactersUseCase = GetFavouriteCharactersUseCaseFactory.make(userDefaultsRepository: userDefaultsRepository)
-    
-    let viewModel = CharactersListViewModel(
-        getCharactersUseCase: getCharactersUseCase, 
-        getCharacterDetailsUseCase: getCharacterDetailsUseCase,
-        getFavouriteCharactersUseCase: getFavouriteCharactersUseCase
-    )
-    return CharactersListView(viewModel: viewModel)
+    return CharactersListViewFactory.make()
 }

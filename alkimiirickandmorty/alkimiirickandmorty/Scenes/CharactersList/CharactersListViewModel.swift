@@ -69,20 +69,24 @@ class CharactersListViewModel: ObservableObject {
     
     @MainActor
     func getCharacterDetails(by id: String) async {
-        selectedCharacter = nil
-        favouriteCharacters = getFavouriteCharactersUseCase()
-        do {
-            selectedCharacter = try await getCharacterDetailsUseCase(id: id)
+        if let character = characters.first(where: { $0.id == id}) {
+            selectedCharacter = character
             hasToPresentDeeplink = true
-        } catch let error as CustomError {
-            showError = true
-            self.error = error
-        } catch let error {
-            showError = true
-            self.error = CustomError(
-                errorCode: .generic,
-                errorMessage: error.localizedDescription
-            )
+        } else {
+            selectedCharacter = nil
+            do {
+                selectedCharacter = try await getCharacterDetailsUseCase(id: id)
+                hasToPresentDeeplink = true
+            } catch let error as CustomError {
+                showError = true
+                self.error = error
+            } catch let error {
+                showError = true
+                self.error = CustomError(
+                    errorCode: .generic,
+                    errorMessage: error.localizedDescription
+                )
+            }
         }
     }
 }
