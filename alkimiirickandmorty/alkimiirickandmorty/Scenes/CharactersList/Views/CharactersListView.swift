@@ -63,6 +63,28 @@ struct CharactersListView: View {
                 }
             }
         }
+        // Deeplinking Handling
+        .onOpenURL { incomingURL in
+            Task { @MainActor in
+                await handleDeeplink(incomingURL)
+            }
+        }
+        .sheet(isPresented: $viewModel.hasToPresentDeeplink) {
+            if let character = viewModel.selectedCharacter {
+                CharacterDetailsViewFactory.make(
+                    character: character,
+                    isFavourite: viewModel.favouriteCharacters.contains(character.id)
+                )
+            }
+        }
+        .alert(isPresented: $viewModel.showError, error: viewModel.error) { _ in
+            Button("OK") {
+                viewModel.showError = false
+                viewModel.error = nil
+            }
+        } message: { error in
+            Text(error.errorMessage)
+        }
     }
     
     @ViewBuilder
@@ -109,17 +131,48 @@ struct CharactersListView: View {
     }
 }
 
+// MARK: - Deeplink handler
+
+extension CharactersListView {
+    @MainActor
+    private func handleDeeplink(_ url: URL) async {
+        guard url.scheme == "alkimiirickandmorty" else {
+            return
+        }
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            print("Invalid URL")
+            return
+        }
+        
+        guard let action = components.host, action == "character" else {
+            print("Unknown URL, we can't handle this one!")
+            return
+        }
+        
+        let pathElements = components.path.components(separatedBy: "/").filter({ !$0.isEmpty })
+        
+        guard pathElements.count == 1 else {
+            print("Invalid path format")
+            return
+        }
+        
+        await viewModel.getCharacterDetails(by: pathElements[0])
+    }
+}
+
 #Preview {
     let charactersRepository = CharactersRepositoryFactory.make()
-    
     let getCharactersUseCase = GetCharactersUseCaseFactory.make(charactersRepository: charactersRepository)
     
-    let userDefaultsRepository = UserDefaultsRepositoryFactory.make(userDefaults: UserDefaults.standard)
+    let characterDetailsRepository = CharacterDetailsRepositoryFactory.make()
+    let getCharacterDetailsUseCase = GetCharacterDetailsUseCaseFactory.make(characterDetailsRepository: characterDetailsRepository)
     
+    let userDefaultsRepository = UserDefaultsRepositoryFactory.make(userDefaults: UserDefaults.standard)
     let getFavouriteCharactersUseCase = GetFavouriteCharactersUseCaseFactory.make(userDefaultsRepository: userDefaultsRepository)
     
     let viewModel = CharactersListViewModel(
-        getCharactersUseCase: getCharactersUseCase,
+        getCharactersUseCase: getCharactersUseCase, 
+        getCharacterDetailsUseCase: getCharacterDetailsUseCase,
         getFavouriteCharactersUseCase: getFavouriteCharactersUseCase
     )
     return CharactersListView(viewModel: viewModel)
