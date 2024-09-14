@@ -53,7 +53,7 @@ struct CharacterDetailsView: View {
                 }
                 .shadow(radius: 10)
                 .padding(.all, 20)
-        }
+        }.padding(.top, 20)
     }
     
     @ViewBuilder
