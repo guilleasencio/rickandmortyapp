@@ -9,7 +9,7 @@ import Domain
 import GraphQL
 import Foundation
 
-protocol CharacterConverter {
+protocol CharacterConverter: AutoMockable {
     func toDomain(_ data: CharacterDTO) -> Character
 }
 
