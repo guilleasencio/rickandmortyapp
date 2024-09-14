@@ -7,7 +7,7 @@
 
 import Foundation
  
-public protocol UserDefaultsRepository {
+public protocol UserDefaultsRepository: AutoMockable {
     func getValue<T>( key: UserDefaultsKey) -> T?
     func setValue<T>(value: T, key: UserDefaultsKey)
 }

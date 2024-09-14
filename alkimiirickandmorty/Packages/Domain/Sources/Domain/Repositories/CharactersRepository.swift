@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol CharactersRepository {
+public protocol CharactersRepository: AutoMockable {
     func getCharacters(for page: Int, gender: Character.Gender) async throws -> [Character]
 }

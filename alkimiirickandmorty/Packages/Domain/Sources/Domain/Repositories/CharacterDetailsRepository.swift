@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol CharacterDetailsRepository {
+public protocol CharacterDetailsRepository: AutoMockable {
     func getCharacterDetails(for id: String) async throws -> Character
 }

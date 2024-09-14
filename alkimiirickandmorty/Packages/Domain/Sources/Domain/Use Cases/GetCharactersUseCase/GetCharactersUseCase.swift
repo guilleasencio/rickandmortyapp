@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol GetCharactersUseCase {
+public protocol GetCharactersUseCase: AutoMockable {
     func callAsFunction(page: Int, gender: Character.Gender) async throws -> [Character]
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol GetFavouriteCharactersUseCase {
+public protocol GetFavouriteCharactersUseCase: AutoMockable {
     func callAsFunction() -> [String]
 }
 

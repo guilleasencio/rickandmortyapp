@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol GetCharacterDetailsUseCase {
+public protocol GetCharacterDetailsUseCase: AutoMockable {
     func callAsFunction(id: String) async throws -> Character
 }
 
