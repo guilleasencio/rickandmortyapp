@@ -55,9 +55,9 @@
 		46535DC42C8F11F600F2F6CA /* alkimiirickandmortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alkimiirickandmortyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46535DC82C8F11F600F2F6CA /* alkimiirickandmortyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alkimiirickandmortyUITests.swift; sourceTree = "<group>"; };
 		46535DCA2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alkimiirickandmortyUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		46535DD72C8F268400F2F6CA /* GraphQL */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GraphQL; path = ../GraphQL; sourceTree = "<group>"; };
-		46535DD82C904DAB00F2F6CA /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Domain; path = ../Domain; sourceTree = "<group>"; };
-		46535DD92C904E7800F2F6CA /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Data; path = ../Data; sourceTree = "<group>"; };
+		46535DD72C8F268400F2F6CA /* GraphQL */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GraphQL; sourceTree = "<group>"; };
+		46535DD82C904DAB00F2F6CA /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
+		46535DD92C904E7800F2F6CA /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
 		46E156E12C92FCD9007CBB1E /* CharactersListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListItemView.swift; sourceTree = "<group>"; };
 		46E156E62C930407007CBB1E /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
 		46E156ED2C935984007CBB1E /* CharacterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsView.swift; sourceTree = "<group>"; };
@@ -124,9 +124,7 @@
 		46535DA12C8F11F400F2F6CA = {
 			isa = PBXGroup;
 			children = (
-				46535DD92C904E7800F2F6CA /* Data */,
-				46535DD82C904DAB00F2F6CA /* Domain */,
-				46535DD72C8F268400F2F6CA /* GraphQL */,
+				467C29A72C96086200D17CEF /* Packages */,
 				46535DAC2C8F11F400F2F6CA /* alkimiirickandmorty */,
 				46535DBD2C8F11F600F2F6CA /* alkimiirickandmortyTests */,
 				46535DC72C8F11F600F2F6CA /* alkimiirickandmortyUITests */,
@@ -181,6 +179,16 @@
 				46535DCA2C8F11F600F2F6CA /* alkimiirickandmortyUITestsLaunchTests.swift */,
 			);
 			path = alkimiirickandmortyUITests;
+			sourceTree = "<group>";
+		};
+		467C29A72C96086200D17CEF /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				46535DD92C904E7800F2F6CA /* Data */,
+				46535DD82C904DAB00F2F6CA /* Domain */,
+				46535DD72C8F268400F2F6CA /* GraphQL */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 		46E156E02C92FC7E007CBB1E /* Views */ = {
