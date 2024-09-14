@@ -12,6 +12,8 @@
 		46273B712C90B21400E7A0E2 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 46273B702C90B21400E7A0E2 /* Data */; };
 		46273B732C90B21900E7A0E2 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 46273B722C90B21900E7A0E2 /* Domain */; };
 		46273B752C90B21C00E7A0E2 /* GraphQL in Frameworks */ = {isa = PBXBuildFile; productRef = 46273B742C90B21C00E7A0E2 /* GraphQL */; };
+		463F02A62C958B59002F010A /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F02A52C958B59002F010A /* AppViewModel.swift */; };
+		463F02A82C95993A002F010A /* AppViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F02A72C95993A002F010A /* AppViewModelFactory.swift */; };
 		46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */; };
 		46535DB22C8F11F500F2F6CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46535DB12C8F11F500F2F6CA /* Assets.xcassets */; };
 		46535DB52C8F11F500F2F6CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46535DB42C8F11F500F2F6CA /* Preview Assets.xcassets */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		46273B6B2C90AA5900E7A0E2 /* CharactersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListView.swift; sourceTree = "<group>"; };
 		46273B6D2C90AD3A00E7A0E2 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
+		463F02A52C958B59002F010A /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		463F02A72C95993A002F010A /* AppViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModelFactory.swift; sourceTree = "<group>"; };
 		46535DAA2C8F11F400F2F6CA /* alkimiirickandmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alkimiirickandmorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alkimiirickandmortyApp.swift; sourceTree = "<group>"; };
 		46535DB12C8F11F500F2F6CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 		46E156F02C9359B2007CBB1E /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
 		46E156F22C935A16007CBB1E /* CharactersListViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewFactory.swift; sourceTree = "<group>"; };
 		46E156F42C935FA9007CBB1E /* CharacterDetailsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewFactory.swift; sourceTree = "<group>"; };
+		46E156F82C9473CF007CBB1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +152,12 @@
 		46535DAC2C8F11F400F2F6CA /* alkimiirickandmorty */ = {
 			isa = PBXGroup;
 			children = (
+				46E156F82C9473CF007CBB1E /* Info.plist */,
 				46E156E32C9302CC007CBB1E /* CommonViews */,
 				46273B692C90AA2400E7A0E2 /* Scenes */,
 				46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */,
+				463F02A52C958B59002F010A /* AppViewModel.swift */,
+				463F02A72C95993A002F010A /* AppViewModelFactory.swift */,
 				46535DB12C8F11F500F2F6CA /* Assets.xcassets */,
 				46535DB32C8F11F500F2F6CA /* Preview Content */,
 			);
@@ -351,12 +359,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463F02A62C958B59002F010A /* AppViewModel.swift in Sources */,
 				46273B6E2C90AD3A00E7A0E2 /* CharactersListViewModel.swift in Sources */,
 				46E156E72C930407007CBB1E /* CharacterImageView.swift in Sources */,
 				46E156F12C9359B2007CBB1E /* CharacterDetailsViewModel.swift in Sources */,
 				46E156F52C935FA9007CBB1E /* CharacterDetailsViewFactory.swift in Sources */,
 				46E156E22C92FCD9007CBB1E /* CharactersListItemView.swift in Sources */,
 				46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */,
+				463F02A82C95993A002F010A /* AppViewModelFactory.swift in Sources */,
 				46E156F32C935A16007CBB1E /* CharactersListViewFactory.swift in Sources */,
 				46273B6C2C90AA5900E7A0E2 /* CharactersListView.swift in Sources */,
 				46E156EE2C935984007CBB1E /* CharacterDetailsView.swift in Sources */,
@@ -525,21 +535,26 @@
 				DEVELOPMENT_ASSET_PATHS = "\"alkimiirickandmorty/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = alkimiirickandmorty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GuillermoAsencioSanchez.alkimiirickandmorty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alkimiirickandmorty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -553,21 +568,26 @@
 				DEVELOPMENT_ASSET_PATHS = "\"alkimiirickandmorty/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = alkimiirickandmorty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GuillermoAsencioSanchez.alkimiirickandmorty;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alkimiirickandmorty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
