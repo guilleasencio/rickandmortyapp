@@ -16,6 +16,8 @@ public extension DataSourceError {
             return CustomError(errorCode: .missingResult, errorMessage: message)
         case .clientError(let error):
             return CustomError(errorCode: .clientError, errorMessage: error.localizedDescription)
+        case .parseError(message: let message):
+            return CustomError(errorCode: .parseError, errorMessage: message)
         }
     }
 }

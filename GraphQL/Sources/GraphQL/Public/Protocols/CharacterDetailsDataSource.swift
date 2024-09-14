@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol CharacterDetailsDataSource {
-    func getCharacterDetails(id: Int) async throws -> API.GetCharacterDetailsQuery.Data
+    func getCharacterDetails(id: String) async throws -> CharacterDTO
 }

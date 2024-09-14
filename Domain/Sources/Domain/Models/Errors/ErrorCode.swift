@@ -9,6 +9,7 @@ import Foundation
 
 public enum ErrorCode: String {
     case generic
+    case parseError
     case missingResult
     case clientError
 }

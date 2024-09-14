@@ -8,6 +8,7 @@
 import Foundation
 
 public enum DataSourceError: Error {
+    case parseError(message: String)
     case missingResult(message: String)
     case clientError(error: Error)
 }

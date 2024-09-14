@@ -1,35 +1,31 @@
 //
-//  CharactersQueryDataConverter.swift
+//  CharactersDetailsQueryDataConverter.swift
+//  
 //
-//
-//  Created by Guillermo Asencio Sanchez on 10/9/24.
+//  Created by Guillermo Asencio Sanchez on 14/9/24.
 //
 
 import Foundation
 
-protocol CharactersQueryDataConverter {
-    func toDto(_ data: API.GetCharactersQuery.Data) -> [CharacterDTO]
+protocol CharactersDetailsQueryDataConverter {
+    func toDto(_ data: API.GetCharacterDetailsQuery.Data) -> CharacterDTO?
 }
 
-private typealias APIOrigin = API.GetCharactersQuery.Data.Characters.Result.Origin
-private typealias APILocation = API.GetCharactersQuery.Data.Characters.Result.Location
-private typealias APIEpisode = API.GetCharactersQuery.Data.Characters.Result.Episode
+private typealias APIOrigin = API.GetCharacterDetailsQuery.Data.Character.Origin
+private typealias APILocation = API.GetCharacterDetailsQuery.Data.Character.Location
+private typealias APIEpisode = API.GetCharacterDetailsQuery.Data.Character.Episode
 
-class CharactersQueryDataConverterImplementation: CharactersQueryDataConverter {
-    func toDto(_ data: GraphQL.API.GetCharactersQuery.Data) -> [CharacterDTO] {
-        guard let characters = data.characters?.results else {
-            return []
+class CharactersDetailsQueryDataConverterImplementation: CharactersDetailsQueryDataConverter {
+    
+    func toDto(_ data: GraphQL.API.GetCharacterDetailsQuery.Data) -> CharacterDTO? {
+        guard let character = data.character else {
+            return nil
         }
 
-        return characters.compactMap{ result in
-            guard let result = result else {
-                return nil
-            }
-            return getCharacter(result)
-        }
+        return getCharacter(character)
     }
     
-    private func getCharacter(_ from: API.GetCharactersQuery.Data.Characters.Result) -> CharacterDTO? {
+    private func getCharacter(_ from: API.GetCharacterDetailsQuery.Data.Character) -> CharacterDTO? {
         guard let id = from.id, let name = from.name else {
             return nil
         }
