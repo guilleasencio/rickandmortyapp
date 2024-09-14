@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CharactersQueryDataConverter {
+protocol CharactersQueryDataConverter: AutoMockable {
     func toDto(_ data: API.GetCharactersQuery.Data) -> [CharacterDTO]
 }
 

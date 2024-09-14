@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol CharacterDetailsDataSource {
+public protocol CharacterDetailsDataSource: AutoMockable {
     func getCharacterDetails(id: String) async throws -> CharacterDTO
 }

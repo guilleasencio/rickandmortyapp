@@ -8,8 +8,6 @@
 import Foundation
 
 struct CharacterDetailsDataSourceImplementation: CharacterDetailsDataSource {
-    
-    
     private let client: GraphQLClient
     private let converter: CharacterDetailsQueryDataConverter
     
