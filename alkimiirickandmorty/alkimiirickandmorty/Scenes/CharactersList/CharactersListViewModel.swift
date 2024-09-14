@@ -8,7 +8,7 @@
 import Domain
 import Foundation
 
-enum state {
+enum SceneStatus {
     case pendingToInit
     case onHold
     case isLoading
@@ -19,12 +19,11 @@ class CharactersListViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var page: Int = 1
     @Published var hasMoreData: Bool = true
-    @Published var state: state = .pendingToInit
+    @Published var state: SceneStatus = .pendingToInit
     @Published var favouriteCharacters: [String] = []
-    
-    // Deeplink
-    @Published var hasToPresentDeeplink: Bool = false
+    @Published var showCharacterDetails: Bool = false
     @Published var showError: Bool = false
+    
     var selectedCharacter: Character?
     var error: CustomError? = nil
     
@@ -73,13 +72,13 @@ class CharactersListViewModel: ObservableObject {
         if let character = characters.first(where: { $0.id == id}) {
             selectedCharacter = character
             state = .onHold
-            hasToPresentDeeplink = true
+            showCharacterDetails = true
         } else {
             selectedCharacter = nil
             do {
                 selectedCharacter = try await getCharacterDetailsUseCase(id: id)
                 state = .onHold
-                hasToPresentDeeplink = true
+                showCharacterDetails = true
             } catch let error as CustomError {
                 showError = true
                 self.error = error

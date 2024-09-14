@@ -31,21 +31,17 @@ struct CharactersListView: View {
                     List() {
                         Section {
                             ForEach(viewModel.characters, id: \.id) { character in
-                                CharactersListItemView(
-                                    character: character,
-                                    isFavourite: viewModel.favouriteCharacters.contains(character.id)
-                                )
-                                    .listRowSeparator(.hidden)
-                                    .overlay {
-                                        NavigationLink(
-                                            character.id,
-                                            destination: CharacterDetailsViewFactory.make(
-                                                character: character,
-                                                isFavourite: viewModel.favouriteCharacters.contains(character.id)
-                                            )
-                                        )
-                                        .opacity(0)
+                                Button {
+                                    Task { @MainActor in
+                                        await viewModel.getCharacterDetails(by: character.id)
                                     }
+                                } label: {
+                                    CharactersListItemView(
+                                        character: character,
+                                        isFavourite: viewModel.favouriteCharacters.contains(character.id)
+                                    )
+                                    .listRowSeparator(.hidden)
+                                }
                             }
                             .listRowInsets(EdgeInsets.init(.zero))
                             if viewModel.hasMoreData {
@@ -63,14 +59,7 @@ struct CharactersListView: View {
                 }
             }
         }
-
-        // Deeplinking Handling
-        .onOpenURL { incomingURL in
-            Task { @MainActor in
-                await handleDeeplink(incomingURL)
-            }
-        }
-        .sheet(isPresented: $viewModel.hasToPresentDeeplink,
+        .sheet(isPresented: $viewModel.showCharacterDetails,
                onDismiss: {
                     viewModel.refreshFavouritesCharacters()
                }
@@ -89,6 +78,12 @@ struct CharactersListView: View {
             }
         } message: { error in
             Text(error.errorMessage)
+        }
+        // Deeplinking Handling
+        .onOpenURL { incomingURL in
+            Task { @MainActor in
+                await handleDeeplink(incomingURL)
+            }
         }
     }
     
