@@ -5,7 +5,7 @@ configurations:
     templates:
       - ../../../Tools/Sourcery/Templates
     output:
-      Tests/Generated
+      Tests/GraphQLTests/Generated
     args:
       autoMockableImports:
         - Apollo

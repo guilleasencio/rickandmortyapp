@@ -7,7 +7,7 @@ configurations:
     templates:
       - ../../../Tools/Sourcery/Templates
     output:
-      Tests/Generated
+      Tests/DataTests/Generated
     args:
       autoMockableTestableImports:
         - Data
