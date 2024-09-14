@@ -1,13 +1,13 @@
 //
-//  CharactersDetailsQueryDataConverter.swift
-//  
+//  CharacterDetailsQueryDataConverter.swift
+//
 //
 //  Created by Guillermo Asencio Sanchez on 14/9/24.
 //
 
 import Foundation
 
-protocol CharactersDetailsQueryDataConverter {
+protocol CharacterDetailsQueryDataConverter {
     func toDto(_ data: API.GetCharacterDetailsQuery.Data) -> CharacterDTO?
 }
 
@@ -15,7 +15,7 @@ private typealias APIOrigin = API.GetCharacterDetailsQuery.Data.Character.Origin
 private typealias APILocation = API.GetCharacterDetailsQuery.Data.Character.Location
 private typealias APIEpisode = API.GetCharacterDetailsQuery.Data.Character.Episode
 
-class CharactersDetailsQueryDataConverterImplementation: CharactersDetailsQueryDataConverter {
+class CharacterDetailsQueryDataConverterImplementation: CharacterDetailsQueryDataConverter {
     
     func toDto(_ data: GraphQL.API.GetCharacterDetailsQuery.Data) -> CharacterDTO? {
         guard let character = data.character else {

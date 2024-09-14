@@ -11,9 +11,9 @@ struct CharacterDetailsDataSourceImplementation: CharacterDetailsDataSource {
     
     
     private let client: GraphQLClient
-    private let converter: CharactersDetailsQueryDataConverter
+    private let converter: CharacterDetailsQueryDataConverter
     
-    init(client: GraphQLClient, converter: CharactersDetailsQueryDataConverter) {
+    init(client: GraphQLClient, converter: CharacterDetailsQueryDataConverter) {
         self.client = client
         self.converter = converter
     }
