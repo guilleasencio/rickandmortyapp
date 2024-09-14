@@ -37,8 +37,4 @@ class GraphQLClientImplementation: GraphQLClient {
             }
         })
     }
-    
-    func query<Query>(query: Query) async where Query : GraphQLQuery {
-        
-    }
 }

@@ -11,13 +11,14 @@
   "output" : {
     "testMocks" : {
       "absolute" : {
-          "path": "Tests/Mocks"
+          "path": "Tests/GraphQLTests/Mocks"
       }
     },
     "schemaTypes" : {
       "path" : "Sources/GraphQL/API",
       "moduleType" : {
         "embeddedInTarget" : {
+            "accessModifier": "public",
             "name" : "GraphQL"
         }
       }
