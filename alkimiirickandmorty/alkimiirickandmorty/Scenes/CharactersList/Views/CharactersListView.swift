@@ -25,7 +25,7 @@ struct CharactersListView: View {
                     genderFilter()
                     Spacer()
                 }
-                if viewModel.loadState == .pendingToInit {
+                if viewModel.state == .pendingToInit || viewModel.state == .onHold {
                     ProgressView()
                 } else {
                     List() {
@@ -70,7 +70,11 @@ struct CharactersListView: View {
                 await handleDeeplink(incomingURL)
             }
         }
-        .sheet(isPresented: $viewModel.hasToPresentDeeplink) {
+        .sheet(isPresented: $viewModel.hasToPresentDeeplink,
+               onDismiss: {
+                    viewModel.refreshFavouritesCharacters()
+               }
+        ){
             if let character = viewModel.selectedCharacter {
                 CharacterDetailsViewFactory.make(
                     character: character,
@@ -112,8 +116,8 @@ struct CharactersListView: View {
     @ViewBuilder
     private func loadMoreRow() -> some View {
         ZStack(alignment: .center) {
-            switch viewModel.loadState {
-            case .pendingToInit, .isLoading:
+            switch viewModel.state {
+            case .pendingToInit, .isLoading, .onHold:
                     HStack(alignment: .center) {
                         Spacer()
                         ProgressView()
@@ -126,7 +130,7 @@ struct CharactersListView: View {
             .frame(height: 50)
             .onAppear {
                 Task { @MainActor in
-                    if viewModel.loadState == .idle {
+                    if viewModel.state == .idle {
                         await viewModel.loadData()
                     }
                 }

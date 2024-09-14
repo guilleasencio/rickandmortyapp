@@ -8,8 +8,9 @@
 import Domain
 import Foundation
 
-enum LoadState {
+enum state {
     case pendingToInit
+    case onHold
     case isLoading
     case idle
 }
@@ -18,7 +19,7 @@ class CharactersListViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var page: Int = 1
     @Published var hasMoreData: Bool = true
-    @Published var loadState: LoadState = .pendingToInit
+    @Published var state: state = .pendingToInit
     @Published var favouriteCharacters: [String] = []
     
     // Deeplink
@@ -46,15 +47,15 @@ class CharactersListViewModel: ObservableObject {
     @MainActor
     func loadData() async {
         do {
-            loadState = .isLoading
+            state = .isLoading
             favouriteCharacters = getFavouriteCharactersUseCase()
             let newCharacters = try await getCharactersUseCase(page: page, gender: gender)
             characters.append(contentsOf: newCharacters)
-            loadState = .idle
+            state = .idle
             hasMoreData = !newCharacters.isEmpty
             page += 1
         } catch {
-            loadState = .idle
+            state = .idle
             hasMoreData = false
         }
     }
@@ -64,18 +65,20 @@ class CharactersListViewModel: ObservableObject {
         characters = []
         page = 1
         hasMoreData = true
-        loadState = .idle
+        state = .idle
     }
     
     @MainActor
     func getCharacterDetails(by id: String) async {
         if let character = characters.first(where: { $0.id == id}) {
             selectedCharacter = character
+            state = .onHold
             hasToPresentDeeplink = true
         } else {
             selectedCharacter = nil
             do {
                 selectedCharacter = try await getCharacterDetailsUseCase(id: id)
+                state = .onHold
                 hasToPresentDeeplink = true
             } catch let error as CustomError {
                 showError = true
@@ -88,5 +91,10 @@ class CharactersListViewModel: ObservableObject {
                 )
             }
         }
+    }
+    
+    func refreshFavouritesCharacters() {
+        favouriteCharacters = getFavouriteCharactersUseCase()
+        state = .idle
     }
 }
