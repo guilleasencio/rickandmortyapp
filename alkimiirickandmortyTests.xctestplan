@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "95D83EF5-92E8-4B4B-9FBE-0E01A1151B71",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:alkimiirickandmorty.xcodeproj",
+        "identifier" : "46535DB92C8F11F600F2F6CA",
+        "name" : "alkimiirickandmortyTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/Domain",
+        "identifier" : "DomainTests",
+        "name" : "DomainTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/Data",
+        "identifier" : "DataTests",
+        "name" : "DataTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/GraphQL",
+        "identifier" : "GraphQLTests",
+        "name" : "GraphQLTests"
+      }
+    }
+  ],
+  "version" : 1
+}

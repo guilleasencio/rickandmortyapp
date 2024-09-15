@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "D1A0C8B4-5144-46DB-ACE2-B63FACDB9DF3",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:alkimiirickandmorty.xcodeproj",
+        "identifier" : "46535DC32C8F11F600F2F6CA",
+        "name" : "alkimiirickandmortyUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

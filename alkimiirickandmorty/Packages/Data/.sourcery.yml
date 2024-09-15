@@ -1,0 +1,15 @@
+configurations:
+  - sources:
+      include:
+        - .
+        - ../Domain
+        - ../GraphQL
+    templates:
+      - ../../../Tools/Sourcery/Templates
+    output:
+      Tests/DataTests/Generated
+    args:
+      autoMockableTestableImports:
+        - Data
+        - Domain
+        - GraphQL

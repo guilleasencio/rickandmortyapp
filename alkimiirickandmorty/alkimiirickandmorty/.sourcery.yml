@@ -1,0 +1,12 @@
+configurations:
+  - sources:
+      include:
+        - .
+        - ../Packages/Domain
+    templates:
+      - ../../Tools/Sourcery/Templates
+    output:
+      ../alkimiirickandmortyTests/Generated
+    args:
+      autoMockableTestableImports:
+        - Domain

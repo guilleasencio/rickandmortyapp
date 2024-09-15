@@ -1,0 +1,11 @@
+configurations:
+  - sources:
+      include:
+        - .
+    templates:
+      - ../../../Tools/Sourcery/Templates
+    output:
+      Tests/DomainTests/Generated
+    args:
+      autoMockableTestableImports:
+        - Domain 

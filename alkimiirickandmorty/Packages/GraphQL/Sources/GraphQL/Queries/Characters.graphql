@@ -1,0 +1,47 @@
+query GetCharacters($page: Int!, $gender: String!) {
+    characters(page: $page, filter: { gender: $gender }) {
+    results {
+      id
+      name
+      status
+      species
+      type
+      gender
+      origin {
+        id
+        name
+        type
+        dimension
+        residents {
+          id
+          name
+        }
+        created
+      }
+      location {
+        id
+        name
+        type
+        dimension
+        residents {
+          id
+          name
+        }
+        created
+      }
+      image
+      episode {
+        id
+        name
+        air_date
+        episode
+        characters {
+          id
+          name
+        }
+        created
+      }
+      created
+    }
+  }
+}
