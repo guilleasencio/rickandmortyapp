@@ -15,6 +15,7 @@
 		4635E8FC2C96F7B40024E42A /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635E8FA2C96F7B40024E42A /* AutoMockable.generated.swift */; };
 		4635E8FF2C96F8040024E42A /* CharactersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635E8FE2C96F8040024E42A /* CharactersListViewModelTests.swift */; };
 		4635E9012C9702500024E42A /* CharacterDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4635E9002C9702500024E42A /* CharacterDetailsViewModelTests.swift */; };
+		4635E9032C9704AC0024E42A /* alkimiirickandmortyTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 46535DBA2C8F11F600F2F6CA /* alkimiirickandmortyTests.xctest */; };
 		46535DAE2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */; };
 		46535DB22C8F11F500F2F6CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46535DB12C8F11F500F2F6CA /* Assets.xcassets */; };
 		46535DB52C8F11F500F2F6CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46535DB42C8F11F500F2F6CA /* Preview Assets.xcassets */; };
@@ -368,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4635E9032C9704AC0024E42A /* alkimiirickandmortyTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
