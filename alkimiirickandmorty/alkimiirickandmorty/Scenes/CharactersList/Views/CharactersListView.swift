@@ -43,6 +43,7 @@ struct CharactersListView: View {
                                     )
                                     .listRowSeparator(.hidden)
                                 }
+                                .accessibilityIdentifier("characters_list_row_\(character.id)")
                             }
                             .listRowInsets(EdgeInsets.init(.zero))
                             if viewModel.hasMoreData {
@@ -50,6 +51,7 @@ struct CharactersListView: View {
                             }
                         }
                     }
+                    .accessibilityIdentifier("characters_list")
                 }
             }
             .navigationTitle("Characters")
@@ -94,6 +96,7 @@ struct CharactersListView: View {
             Text("Filter by Gender:")
                 .font(.system(size: 18.0))
                 .foregroundColor(colorScheme == .dark ? .white : .black)
+                .accessibilityIdentifier("gender_label")
             Picker("Gender", selection: $gender) {
                 ForEach(Character.Gender.allCases) { gender in
                     Text(gender.rawValue)
@@ -105,9 +108,10 @@ struct CharactersListView: View {
             }
             .pickerStyle(.menu)
             .tint(colorScheme == .dark ? .white : .black)
+            .accessibilityIdentifier("gender_picker")
         }
         .textCase(.none)
-        .accessibilityIdentifier("gender_picker")
+        
     }
     
     @ViewBuilder

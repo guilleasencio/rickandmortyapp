@@ -37,11 +37,13 @@ struct CharacterDetailsView: View {
                     .font(.title)
                     .bold()
                     .padding(.horizontal, 40)
+                    .accessibilityIdentifier("character_details_name")
 
                 HStack {
                     Spacer()
                     favouriteButton()
                         .padding(.trailing, 0)
+                        .accessibilityIdentifier("character_details_favorite_button")
                 }
             }
             CharacterImageView(url: viewModel.character.image)
