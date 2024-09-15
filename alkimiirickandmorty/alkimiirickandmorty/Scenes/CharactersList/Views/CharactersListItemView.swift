@@ -41,7 +41,7 @@ struct CharactersListItemView: View {
             
             Image(systemName: isFavourite ? "star.fill" : "star")
                 .font(.system(size: 32))
-                .foregroundStyle(.black)
+                .foregroundStyle(.orange)
                 .padding(.trailing, 10)
         }
         .padding(.vertical, 10)

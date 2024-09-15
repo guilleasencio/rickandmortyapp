@@ -10,6 +10,7 @@ import Domain
 import SwiftUI
 
 struct CharactersListView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: CharactersListViewModel
     @State var gender: Character.Gender = .all
     
@@ -92,7 +93,7 @@ struct CharactersListView: View {
         HStack {
             Text("Filter by Gender:")
                 .font(.system(size: 18.0))
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .dark ? .white : .black)
             Picker("Gender", selection: $gender) {
                 ForEach(Character.Gender.allCases) { gender in
                     Text(gender.rawValue)
@@ -103,9 +104,10 @@ struct CharactersListView: View {
                 viewModel.setGender(newGender: newValue)
             }
             .pickerStyle(.menu)
-            .tint(.black)
+            .tint(colorScheme == .dark ? .white : .black)
         }
         .textCase(.none)
+        .accessibilityIdentifier("gender_picker")
     }
     
     @ViewBuilder

@@ -49,7 +49,7 @@ struct CharacterDetailsView: View {
                 .clipShape(Circle())
                 .overlay {
                     Circle()
-                        .stroke(.black, lineWidth: 4)
+                        .stroke(.white, lineWidth: 4)
                 }
                 .shadow(radius: 10)
                 .padding(.all, 20)
@@ -64,7 +64,7 @@ struct CharacterDetailsView: View {
             Label("Toggle Favorite", systemImage: viewModel.isFavourite ? "star.fill" : "star")
                 .labelStyle(.iconOnly)
                 .font(.system(size: 32))
-                .foregroundStyle(.black)
+                .foregroundStyle(.orange)
         }
     }
     
