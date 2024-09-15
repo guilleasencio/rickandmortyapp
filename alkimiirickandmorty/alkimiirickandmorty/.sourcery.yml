@@ -2,15 +2,11 @@ configurations:
   - sources:
       include:
         - .
-        - ../Packages
+        - ../Packages/Domain
     templates:
       - ../../Tools/Sourcery/Templates
     output:
       ../alkimiirickandmortyTests/Generated
     args:
-      autoMockableImports:
-        - Apollo
       autoMockableTestableImports:
-        - Data
         - Domain
-        - GraphQL

@@ -7,7 +7,5 @@ configurations:
     output:
       Tests/GraphQLTests/Generated
     args:
-      autoMockableImports:
-        - Apollo
       autoMockableTestableImports:
         - GraphQL

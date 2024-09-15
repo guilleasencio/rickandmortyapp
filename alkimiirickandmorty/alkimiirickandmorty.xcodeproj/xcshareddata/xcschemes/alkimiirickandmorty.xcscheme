@@ -30,8 +30,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:alkimiirickandmorty.xctestplan"
+            reference = "container:../alkimiirickandmortyTests.xctestplan"
             default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:alkimiirickandmortyUITests.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
@@ -75,6 +78,36 @@
                BuildableName = "DomainTests"
                BlueprintName = "DomainTests"
                ReferencedContainer = "container:Packages/Domain">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GraphQLTests"
+               BuildableName = "GraphQLTests"
+               BlueprintName = "GraphQLTests"
+               ReferencedContainer = "container:Packages/GraphQL">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DomainTests"
+               BuildableName = "DomainTests"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:Packages/Domain">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DataTests"
+               BuildableName = "DataTests"
+               BlueprintName = "DataTests"
+               ReferencedContainer = "container:Packages/Data">
             </BuildableReference>
          </TestableReference>
          <TestableReference

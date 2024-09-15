@@ -10,7 +10,6 @@ import UIKit
 import AppKit
 #endif
 
-import Apollo
 
 @testable import GraphQL
 
