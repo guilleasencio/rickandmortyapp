@@ -15,7 +15,6 @@ final class CharactersListViewModelTests: XCTestCase {
     private var getCharacterDetailsUseCaseMock: GetCharacterDetailsUseCaseMock!
     private var getFavouriteCharactersUseCaseMock: GetFavouriteCharactersUseCaseMock!
     
-    
     // MARK: - Setup
     
     override func setUpWithError() throws {
