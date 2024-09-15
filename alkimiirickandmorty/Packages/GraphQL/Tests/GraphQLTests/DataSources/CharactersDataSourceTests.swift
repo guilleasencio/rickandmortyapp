@@ -73,14 +73,17 @@ final class CharactersDataSourceTests: XCTestCase {
                 created: nil
             )
         ]
-        
-        let result = try await sut.getCharacters(page: 1, gender: "")
-        
-        XCTAssertEqual(1, clientMock.queryCallsCount)
-        XCTAssertEqual(1, converterMock.toDtoDataAPIGetCharactersQueryDataCharacterDTOCallsCount)
-        XCTAssertEqual(2, result.count)
-        XCTAssertEqual("Rick", result[0].name)
-        XCTAssertEqual("Morty", result[1].name)
+        do {
+            let result = try await sut.getCharacters(page: 1, gender: "")
+            
+            XCTAssertEqual(1, clientMock.queryCallsCount)
+            XCTAssertEqual(1, converterMock.toDtoDataAPIGetCharactersQueryDataCharacterDTOCallsCount)
+            XCTAssertEqual(2, result.count)
+            XCTAssertEqual("Rick", result[0].name)
+            XCTAssertEqual("Morty", result[1].name)
+        } catch {
+            XCTFail("It shouldn't enter here.")
+        }
     }
     
     func testErrorIsReturned_When_GetCharactersIsCalled_And_ResultIsFailure() async throws {
@@ -90,6 +93,7 @@ final class CharactersDataSourceTests: XCTestCase {
         
         do {
             _  = try await sut.getCharacters(page: 1, gender: "")
+            XCTFail("It should throw an error.")
         } catch let error as DataSourceError {
             XCTAssertEqual(1, clientMock.queryCallsCount)
             XCTAssertEqual(0, converterMock.toDtoDataAPIGetCharactersQueryDataCharacterDTOCallsCount)
