@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "FE53E4BA-1905-4177-A16B-71DA3ABDE207",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "GraphQLTests",
+        "name" : "GraphQLTests"
+      }
+    }
+  ],
+  "version" : 1
+}

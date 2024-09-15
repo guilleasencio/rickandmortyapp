@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Data"
-               BuildableName = "Data"
-               BlueprintName = "Data"
+               BlueprintIdentifier = "Domain"
+               BuildableName = "Domain"
+               BlueprintName = "Domain"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../../DataTests.xctestplan"
+            reference = "container:../../DomainTests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -39,9 +39,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DataTests"
-               BuildableName = "DataTests"
-               BlueprintName = "DataTests"
+               BlueprintIdentifier = "DomainTests"
+               BuildableName = "DomainTests"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DomainTests"
+               BuildableName = "DomainTests"
+               BlueprintName = "DomainTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -67,9 +77,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Data"
-            BuildableName = "Data"
-            BlueprintName = "Data"
+            BlueprintIdentifier = "Domain"
+            BuildableName = "Domain"
+            BlueprintName = "Domain"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

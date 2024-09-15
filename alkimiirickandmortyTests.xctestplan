@@ -1,23 +1,18 @@
 {
   "configurations" : [
     {
-      "id" : "DF672B5D-8865-4347-9918-249DE3FB7914",
-      "name" : "Test Scheme Action",
+      "id" : "95D83EF5-92E8-4B4B-9FBE-0E01A1151B71",
+      "name" : "Configuration 1",
       "options" : {
 
       }
     }
   ],
   "defaultOptions" : {
-    "targetForVariableExpansion" : {
-      "containerPath" : "container:alkimiirickandmorty.xcodeproj",
-      "identifier" : "46535DA92C8F11F400F2F6CA",
-      "name" : "alkimiirickandmorty"
-    }
+
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:alkimiirickandmorty.xcodeproj",
         "identifier" : "46535DB92C8F11F600F2F6CA",
@@ -26,16 +21,16 @@
     },
     {
       "target" : {
-        "containerPath" : "container:Packages\/Data",
-        "identifier" : "DataTests",
-        "name" : "DataTests"
+        "containerPath" : "container:Packages\/Domain",
+        "identifier" : "DomainTests",
+        "name" : "DomainTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:Packages\/Domain",
-        "identifier" : "DomainTests",
-        "name" : "DomainTests"
+        "containerPath" : "container:Packages\/Data",
+        "identifier" : "DataTests",
+        "name" : "DataTests"
       }
     },
     {
