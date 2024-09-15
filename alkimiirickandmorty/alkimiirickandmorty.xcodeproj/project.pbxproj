@@ -51,6 +51,7 @@
 		4635E8FA2C96F7B40024E42A /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		4635E8FE2C96F8040024E42A /* CharactersListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModelTests.swift; sourceTree = "<group>"; };
 		4635E9002C9702500024E42A /* CharacterDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		4635E9022C9704210024E42A /* alkimiirickandmorty.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = alkimiirickandmorty.xctestplan; sourceTree = "<group>"; };
 		46535DAA2C8F11F400F2F6CA /* alkimiirickandmorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alkimiirickandmorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46535DAD2C8F11F400F2F6CA /* alkimiirickandmortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alkimiirickandmortyApp.swift; sourceTree = "<group>"; };
 		46535DB12C8F11F500F2F6CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		46535DA12C8F11F400F2F6CA = {
 			isa = PBXGroup;
 			children = (
+				4635E9022C9704210024E42A /* alkimiirickandmorty.xctestplan */,
 				467C29A72C96086200D17CEF /* Packages */,
 				46535DAC2C8F11F400F2F6CA /* alkimiirickandmorty */,
 				46535DBD2C8F11F600F2F6CA /* alkimiirickandmortyTests */,
