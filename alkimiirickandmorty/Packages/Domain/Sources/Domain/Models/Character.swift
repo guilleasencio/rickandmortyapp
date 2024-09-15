@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Character {
+public struct Character: Equatable {
     public enum Status: String {
         case alive = "Alive"
         case dead = "Dead"
@@ -73,5 +73,9 @@ public struct Character {
         self.image = image
         self.episode = episode
         self.created = created
+    }
+    
+    public static func == (lhs: Character, rhs: Character) -> Bool {
+        lhs.id == rhs.id
     }
 }
