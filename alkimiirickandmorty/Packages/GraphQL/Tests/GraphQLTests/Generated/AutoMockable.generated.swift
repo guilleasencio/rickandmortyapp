@@ -12,8 +12,6 @@ import AppKit
 
 import Apollo
 
-@testable import Data
-@testable import Domain
 @testable import GraphQL
 
 

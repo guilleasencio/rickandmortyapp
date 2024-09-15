@@ -10,6 +10,4 @@ configurations:
       autoMockableImports:
         - Apollo
       autoMockableTestableImports:
-        - Data
-        - Domain
         - GraphQL
