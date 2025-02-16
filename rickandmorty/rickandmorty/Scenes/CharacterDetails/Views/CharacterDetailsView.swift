@@ -46,7 +46,7 @@ struct CharacterDetailsView: View {
                         .accessibilityIdentifier("character_details_favorite_button")
                 }
             }
-            CharacterImageView(url: viewModel.character.image)
+            CharacterImageView(image: CharacterImageModel(url: viewModel.character.image))
                 .frame(width: 250.0, height: 250.0, alignment: .center)
                 .clipShape(Circle())
                 .overlay {

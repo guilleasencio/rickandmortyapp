@@ -10,6 +10,7 @@ import Foundation
 
 class CharacterDetailsViewModel: ObservableObject {
     @Published var character: Character
+    @Published var characterImage: CharacterImageModel
     @Published var isFavourite: Bool
     
     private let updateFavouriteCharactersUseCase: UpdateFavouriteCharactersUseCase
@@ -20,6 +21,7 @@ class CharacterDetailsViewModel: ObservableObject {
         updateFavouriteCharactersUseCase: UpdateFavouriteCharactersUseCase
     ) {
         self.character = character
+        self.characterImage = CharacterImageModel(url: character.image)
         self.isFavourite = isFavourite
         self.updateFavouriteCharactersUseCase = updateFavouriteCharactersUseCase
     }

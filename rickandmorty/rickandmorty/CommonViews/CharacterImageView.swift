@@ -7,15 +7,23 @@
 
 import SwiftUI
 
-struct CharacterImageView: View {
-    @State private var url: String
+class CharacterImageModel: ObservableObject {
+    @Published var url: String
     
     init(url: String) {
         self.url = url
     }
+}
+
+struct CharacterImageView: View {
+    @ObservedObject private var image: CharacterImageModel
+    
+    init(image: CharacterImageModel) {
+        self.image = image
+    }
     
     var body: some View {
-        AsyncImage(url: URL(string: url)) { phase in
+        AsyncImage(url: URL(string: image.url)) { phase in
             switch phase {
             case .empty, .failure:
                 Image(systemName: "person.fill")
@@ -33,7 +41,7 @@ struct CharacterImageView: View {
 }
 
 #Preview {
-    CharacterImageView(url: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")
+    CharacterImageView(image: CharacterImageModel(url:  "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
         .frame(width: 256, height: 256)
         .clipShape(.rect(cornerRadius: 25))
 }
