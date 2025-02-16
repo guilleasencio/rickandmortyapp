@@ -19,7 +19,7 @@ struct CharactersListItemView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            CharacterImageView(url: character.image)
+            CharacterImageView(image: CharacterImageModel(url: character.image))
                 .frame(width: 80.0, height: 80.0, alignment: .center)
                 .clipShape(.rect(cornerRadius: 12))
                 .padding(.all, 20)

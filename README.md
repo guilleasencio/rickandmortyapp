@@ -4,6 +4,9 @@ Rick & Morty app for iOS devices!
 ## Configuration
 You do not need to do anything more than open the `.xcworkspace` to open the project. Dependecies are automatically resolved thanks to SPM.
 
+## Deeplinking
+You can access Character details using deeplinking: `rickandmorty://character/{id}`. Example: `rickandmorty://character/3`
+
 ## Generate Mocks
 This project uses Sourcery for generating mocks for unit testing.
 
