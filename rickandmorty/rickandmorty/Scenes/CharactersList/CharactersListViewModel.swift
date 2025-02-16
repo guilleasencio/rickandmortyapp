@@ -71,7 +71,6 @@ class CharactersListViewModel: ObservableObject {
     func getCharacterDetails(by id: String) async {
         if let character = characters.first(where: { $0.id == id}) {
             selectedCharacter = character
-            state = .onHold
             showCharacterDetails = true
         } else {
             selectedCharacter = nil
